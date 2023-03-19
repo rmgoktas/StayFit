@@ -13,7 +13,7 @@ class Utils {
           subExercises: [
             SubExercise(
               color: const Color(0xFF000000),
-              name: "Spartan Push Up",
+              name: "Spartan Push Upp",
               imgName: " ",
               subExercises: []
               ),
