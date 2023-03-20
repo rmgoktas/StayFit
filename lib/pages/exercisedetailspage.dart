@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/models/subexercise.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
-
 import '../models/exercise.dart';
 
 class ExerciseDetailsPage extends StatelessWidget {

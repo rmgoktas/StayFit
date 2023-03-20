@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stayfit_app/pages/stepcounterpage.dart';
 
 class ExerciseNavBar extends StatelessWidget {
   
@@ -28,7 +29,15 @@ class ExerciseNavBar extends StatelessWidget {
           ClipOval(
             child: Material(
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => 
+                      StepCounterPage()
+                    ),
+                  );
+                },
                 icon: Image.asset("assets/steps.png", width: 25, height: 25),
               ),
             ),

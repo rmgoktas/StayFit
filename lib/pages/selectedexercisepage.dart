@@ -4,6 +4,7 @@ import 'package:stayfit_app/pages/exercisedetailspage.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 
 class SelectedExercisePage extends StatelessWidget {
+  
   Exercise selectedExercise;
 
   SelectedExercisePage({required this.selectedExercise});
