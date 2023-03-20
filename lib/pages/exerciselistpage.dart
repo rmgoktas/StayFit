@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stayfit_app/helpers/utils.dart';
 import 'package:stayfit_app/models/exercise.dart';
 import 'package:stayfit_app/pages/selectedexercisepage.dart';
+import 'package:stayfit_app/widgets/mainappbar.dart';
 import '../widgets/exercisecard.dart';
 import '../widgets/exercisenavbar.dart';
 
@@ -14,23 +15,7 @@ class ExerciseListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(),
-      appBar: AppBar(
-        title: SizedBox(
-            width: 65, height: 65, child: Image.asset("assets/blackicon.png")
-        ),
-        backgroundColor: Colors.transparent,
-        foregroundColor: Colors.black,
-        elevation: 0,
-        actions: [
-          Container(
-            margin: EdgeInsets.only(right: 10),
-            padding: EdgeInsets.all(10),
-            child: ClipOval(
-              child: Image.asset("assets/ahmethoca.jpeg"),
-            ),
-          )
-        ],
-      ),
+      appBar: MainAppBar(),
       body: Container(
           child: Stack(
         children: [
@@ -56,7 +41,7 @@ class ExerciseListPage extends StatelessWidget {
                           context, 
                           MaterialPageRoute(
                             builder: (context) => SelectedExercisePage(
-                              selectedExercise: Utils.getMockedExercises()[index]
+                              selectedExercise: this.exercises[index],
                               )
                             )
                         );
