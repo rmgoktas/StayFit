@@ -59,6 +59,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/navBar/
+    - assets/appBar/
+    - assets/exercisecards/
+    - assets/exercisedetails/spartan.jpeg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
