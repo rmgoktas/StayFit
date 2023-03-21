@@ -2,6 +2,7 @@ import 'dart:ui';
 
 
 class Exercise {
+
   String name;
   Color color;
   String imgName;

@@ -22,7 +22,7 @@ class ExerciseNavBar extends StatelessWidget {
             child: Material(
               child: IconButton(
                 onPressed: () {},
-                icon: Image.asset("assets/home.png", width: 25, height: 25),
+                icon: Image.asset("assets/navBar/home.png", width: 25, height: 25),
               ),
             ),
           ),
@@ -38,7 +38,7 @@ class ExerciseNavBar extends StatelessWidget {
                     ),
                   );
                 },
-                icon: Image.asset("assets/steps.png", width: 25, height: 25),
+                icon: Image.asset("assets/navBar/steps.png", width: 25, height: 25),
               ),
             ),
           ),
@@ -46,7 +46,7 @@ class ExerciseNavBar extends StatelessWidget {
             child: Material(
               child: IconButton(
                 onPressed: () {},
-                icon: Image.asset("assets/bmi.png", width: 25, height: 25),
+                icon: Image.asset("assets/navBar/bmi.png", width: 25, height: 25),
               ),
             ),
           ),
@@ -54,7 +54,7 @@ class ExerciseNavBar extends StatelessWidget {
             child: Material(
               child: IconButton(
                 onPressed: () {},
-                icon: Image.asset("assets/timer.png", width: 25, height: 25),
+                icon: Image.asset("assets/navBar/timer.png", width: 25, height: 25),
               ),
             ),
           )

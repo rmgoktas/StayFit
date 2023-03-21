@@ -15,37 +15,43 @@ class Utils {
               color: const Color(0xFF000000),
               name: "Spartan Push Up",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Chest Stretching Push Up",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Hands On Bench Push Up",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Jump Push Up",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Feet On Bench Push Up",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Side to Side Push Up",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
           ]
       ),
@@ -58,37 +64,43 @@ class Utils {
               color: const Color(0xFF000000),
               name: "Side Arm Raises",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Triceps Dips",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Leg Barbell Curl",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Burpees",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Diagonal Plank",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Wall Push-Ups",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
           ]
           ),
@@ -101,37 +113,43 @@ class Utils {
               color: const Color(0xFF000000),
               name: "Superman",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Hover Push-Up",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Bird Dog",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Hip Hinge",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Body Weight Cable Row",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Incline Push-Up",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
           ]
           ),
@@ -144,37 +162,43 @@ class Utils {
               color: const Color(0xFF000000),
               name: "Sit-Up",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Leg Raise",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Knee In",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Hardstyle Plank",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Crunch",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Toe Touch",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
           ]
           ),
@@ -187,37 +211,43 @@ class Utils {
               color: const Color(0xFF000000),
               name: "Prison Squat",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Lunge",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Calf Raises",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Side Leg Circles",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Sumo Squat",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Wall Sit",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
           ]
           ),
@@ -230,37 +260,43 @@ class Utils {
               color: const Color(0xFF000000),
               name: "Piriformis Stretch",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Triceps Stretch",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Figure Four Stretch",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "90/90 Hip Stretch",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Seated Shoulder Squeeze",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
             SubExercise(
               color: const Color(0xFF000000),
               name: "Side Bend Stretch",
               imgName: " ",
-              subExercises: []
+              subExercises: [],
+              
               ),
           ]
           )

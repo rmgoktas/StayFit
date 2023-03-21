@@ -21,7 +21,7 @@ class ExerciseCard extends StatelessWidget {
               Positioned.fill(
                   child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.asset('assets/' + this.exercise.imgName + '.jpeg',
+                child: Image.asset('assets/exercisecards/' + this.exercise.imgName + '.jpeg',
                     fit: BoxFit.cover),
               )),
               Positioned(

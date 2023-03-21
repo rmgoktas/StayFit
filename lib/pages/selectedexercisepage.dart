@@ -4,7 +4,6 @@ import 'package:stayfit_app/pages/exercisedetailspage.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 
 class SelectedExercisePage extends StatelessWidget {
-  
   Exercise selectedExercise;
 
   SelectedExercisePage({required this.selectedExercise});
@@ -36,12 +35,11 @@ class SelectedExercisePage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => 
-                              ExerciseDetailsPage(
-                                  selectedExercise: this.selectedExercise.subExercises[index],
-                              )
-                          )
-                      );
+                              builder: (context) => ExerciseDetailsPage(
+                                    selectedExercise: this
+                                        .selectedExercise
+                                        .subExercises[index],
+                                  )));
                     },
                     child: Container(
                       child: Column(
@@ -62,10 +60,13 @@ class SelectedExercisePage extends StatelessWidget {
                       ),
                     ),
                   );
-                }),
-              )),
+                }
+                ),
+              )
+             ),
             ],
           ),
-        ));
+        )
+      );
   }
 }
