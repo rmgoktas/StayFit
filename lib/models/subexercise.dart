@@ -1,10 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'exercise.dart';
+import 'exercisedetails.dart';
 
 class SubExercise extends Exercise {
-  
-
 
   SubExercise({
       
@@ -12,6 +11,8 @@ class SubExercise extends Exercise {
       required Color color,
       required String imgName,
       required List<Exercise> subExercises,
+      required List<ExerciseDetails> exerciseDetailsList, 
+      
      
       
       })
@@ -20,5 +21,6 @@ class SubExercise extends Exercise {
           color: color,
           imgName: imgName,
           subExercises: subExercises,
+          exerciseDetailsList: exerciseDetailsList,
         );
 }

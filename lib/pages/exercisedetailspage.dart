@@ -1,23 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:stayfit_app/models/subexercise.dart';
-import 'package:stayfit_app/widgets/mainappbar.dart';
 import 'package:stayfit_app/models/exercise.dart';
-
+import 'package:stayfit_app/widgets/mainappbar.dart';
 
 class ExerciseDetailsPage extends StatelessWidget {
-  
-  Exercise selectedExercise;
+  final Exercise selectedExercise;
 
-  ExerciseDetailsPage({required this.selectedExercise});
+  const ExerciseDetailsPage({Key? key, required this.selectedExercise}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MainAppBar(),
-        body: Container(
-          child: Column(
-          ),
-        )
+      appBar: MainAppBar(),
+      body: Container(
+        child: Column(
+          children: [
+            // Burada egzersizin adını görüntüleyebilirsiniz
+            Text(selectedExercise.name),
+            // Burada egzersiz detaylarını görüntüleyebilirsiniz
+            Expanded(
+              child: ListView.builder(
+                itemCount: selectedExercise.exerciseDetailsList.length,
+                itemBuilder: (context, index) {
+                  final detail = selectedExercise.exerciseDetailsList[index];
+                  return ListTile(
+                    title: Text(detail.name),
+                    subtitle: Text(detail.description),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
+
