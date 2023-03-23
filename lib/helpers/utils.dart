@@ -1,10 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/models/exercise.dart';
+import 'package:stayfit_app/models/onboardcontent.dart';
 import 'package:stayfit_app/pages/selectedexercisepage.dart';
 import '../models/exercisedetails.dart';
 import '../models/subexercise.dart';
 
 class Utils {
+  static List<OnboardContent> getOnboard() {
+    return [
+      OnboardContent(
+        message: "Welcome! We're here with workout movements that you can do without equipment at home and tools to track your health.",
+        imgName: "img1.png",
+      ),
+      OnboardContent(
+        message: "We invite you to a healthier life. Set your goals with our step counter and BMI calculator and achieve them.",
+        imgName: "img2.png",
+      ),
+      OnboardContent(
+        message: "Start exploring yourself. Maintain your fitness and lead a healthy life with our equipment-free exercises at home.",
+        imgName: "img3.png",
+      ),
+    ];
+    
+  }
+
   static List<Exercise> getMockedExercises() {
     return [
       Exercise(
