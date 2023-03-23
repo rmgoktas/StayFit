@@ -4,6 +4,7 @@
 // ) 
 import "package:flutter/material.dart";
 import "package:stayfit_app/helpers/utils.dart";
+import "package:stayfit_app/pages/onboardpage.dart";
 import "package:stayfit_app/pages/selectedexercisepage.dart";
 import "package:stayfit_app/pages/welcomepage.dart";
 
