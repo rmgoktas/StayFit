@@ -1,16 +1,18 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
 class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
   
   Color themeColor;
 
-  MainAppBar({this.themeColor = Colors.white});
+  MainAppBar({super.key, this.themeColor = Colors.white});
 
   @override
   MainAppBarState createState() => MainAppBarState();
 
   @override
-  Size get preferredSize => new Size.fromHeight(80);
+  Size get preferredSize => const Size.fromHeight(80);
    
 }
 
@@ -30,8 +32,8 @@ class MainAppBarState extends State<MainAppBar> {
           elevation: 0.0,
           actions: [
             Container(
-              margin: EdgeInsets.only(right: 10),
-              padding: EdgeInsets.all(10),
+              margin: const EdgeInsets.only(right: 10),
+              padding: const EdgeInsets.all(10),
               child: ClipOval(
                 child: Image.asset("assets/appBar/ahmethoca.jpeg"),
               ),

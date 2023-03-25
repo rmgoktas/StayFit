@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:stayfit_app/pages/stepcounterpage.dart';
+import 'package:stayfit_app/pages/activitypage.dart';
+import 'package:stayfit_app/pages/exerciselistpage.dart';
 
 class ExerciseNavBar extends StatelessWidget {
+  const ExerciseNavBar({super.key});
+
   
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,15 @@ class ExerciseNavBar extends StatelessWidget {
           ClipOval(
             child: Material(
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => 
+                      ExerciseListPage()
+                    ),
+                  );
+                },
                 icon: Image.asset("assets/navBar/home.png", width: 25, height: 25),
               ),
             ),
@@ -34,7 +45,7 @@ class ExerciseNavBar extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => 
-                      StepCounterPage()
+                      const ActivityPage()
                     ),
                   );
                 },

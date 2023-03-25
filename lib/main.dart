@@ -2,16 +2,15 @@
 // github: https://github.com/rmgoktas
 // twitter: https://twitter.com/rmgdev0
 // ) 
+// ignore_for_file: must_be_immutable, use_key_in_widget_constructors
+
 import "package:flutter/material.dart";
-import "package:stayfit_app/helpers/utils.dart";
-import "package:stayfit_app/pages/onboardpage.dart";
-import "package:stayfit_app/pages/selectedexercisepage.dart";
 import "package:stayfit_app/pages/welcomepage.dart";
 
 void main() {
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashPage ( duration: 3, goToPage: WelcomePage())
+      home: SplashPage ( duration: 3, goToPage: const WelcomePage())
     )
   );
 }
@@ -25,15 +24,15 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(
-      Duration(seconds: this.duration), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => this.goToPage));
+      Duration(seconds: duration), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => goToPage));
       }
     );
 
     return Scaffold(
         body: Container(
-            color: Color(0xFF000000),
+            color: const Color(0xFF000000),
             alignment: Alignment.center,
             child: Image.asset('assets/icon.png')
         )

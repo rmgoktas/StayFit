@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable, prefer_interpolation_to_compose_strings
+
 import 'package:flutter/material.dart';
 import '../models/exercise.dart';
 
@@ -5,23 +7,23 @@ class ExerciseCard extends StatelessWidget {
   Exercise exercise;
   Function onCardClick;
 
-  ExerciseCard({required this.exercise, required this.onCardClick});
+  ExerciseCard({super.key, required this.exercise, required this.onCardClick});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          this.onCardClick();
+          onCardClick();
         },
         child: Container(
-          margin: EdgeInsets.all(20),
+          margin: const EdgeInsets.all(20),
           height: 170,
           child: Stack(
             children: [
               Positioned.fill(
                   child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.asset('assets/exercisecards/' + this.exercise.imgName + '.jpeg',
+                child: Image.asset('assets/exercisecards/' + exercise.imgName + '.jpeg',
                     fit: BoxFit.cover),
               )),
               Positioned(
@@ -31,7 +33,7 @@ class ExerciseCard extends StatelessWidget {
                   child: Container(
                       height: 120,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                               bottomRight: Radius.circular(20)),
                           gradient: LinearGradient(
@@ -48,9 +50,9 @@ class ExerciseCard extends StatelessWidget {
                     padding: const EdgeInsets.all(1),
                     child: Row(
                       children: [
-                        SizedBox(width: 10),
-                        Text(this.exercise.name,
-                            style: TextStyle(color: Colors.white, fontSize: 20))
+                        const SizedBox(width: 10),
+                        Text(exercise.name,
+                            style: const TextStyle(color: Colors.white, fontSize: 20))
                       ],
                     ),
                   ))

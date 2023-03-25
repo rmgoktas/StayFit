@@ -3,6 +3,8 @@ import "package:stayfit_app/pages/exerciselistpage.dart";
 import "package:stayfit_app/pages/onboardpage.dart";
 
 class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +30,7 @@ class WelcomePage extends StatelessWidget {
                         child: Container(
                           width: 180,
                           height: 180,
-                          color: Color.fromARGB(120, 255, 255, 255),
+                          color: const Color.fromARGB(120, 255, 255, 255),
                           alignment: Alignment.center,
                           child: Image.asset(
                             "assets/blackicon.png",
@@ -36,8 +38,8 @@ class WelcomePage extends StatelessWidget {
                         )
                       ),
                     ),
-                    SizedBox(height: 15),
-                    Text(
+                    const SizedBox(height: 15),
+                    const Text(
                       "Welcome !",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -45,15 +47,15 @@ class WelcomePage extends StatelessWidget {
                           fontSize: 30,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 35),
-                    Text(
+                    const SizedBox(height: 45),
+                    const Text(
                       "Start the change today.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white, 
-                        fontSize: 15),
+                        fontSize: 18),
                     ),
-                    SizedBox(height: 50),
+                    const SizedBox(height: 70),
                     Padding(
                       padding: const EdgeInsets.all(20),
                       child: MaterialButton(
@@ -68,9 +70,9 @@ class WelcomePage extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50)
                         ),
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: const Color.fromARGB(255, 255, 255, 255),
                         padding: const EdgeInsets.all(25),
-                        child: Text("Start Onboarding",
+                        child: const Text("Start Onboarding",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,
@@ -80,14 +82,14 @@ class WelcomePage extends StatelessWidget {
                        )
                      ),
                     Container(
-                      margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                      margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 50),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: Material(
                           color: Colors.transparent,
                           child: InkWell(
-                            splashColor: Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
-                            highlightColor: Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
+                            splashColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
+                            highlightColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
                             onTap: () {
                               Navigator.push(
                                 context,
@@ -98,7 +100,15 @@ class WelcomePage extends StatelessWidget {
                             },
                             child: Container(
                               padding: const EdgeInsets.all(20),
-                              child: Text(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.transparent,
+                                border: Border.all(
+                                  color: const Color.fromARGB(255, 255, 255, 255),
+                                  width: 4
+                                )
+                              ),
+                              child: const Text(
                                 "Start Now",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -107,29 +117,21 @@ class WelcomePage extends StatelessWidget {
                                   fontWeight: FontWeight.bold
                                 ),
                               ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: Colors.transparent,
-                                border: Border.all(
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                  width: 4
-                                )
-                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                      margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: Material(
                             color: Colors.transparent,
                             child: InkWell(
-                              splashColor: Color.fromARGB(255, 255, 255, 255)
+                              splashColor: const Color.fromARGB(255, 255, 255, 255)
                                   .withOpacity(0.2),
-                              highlightColor: Color.fromARGB(255, 255, 255, 255)
+                              highlightColor: const Color.fromARGB(255, 255, 255, 255)
                                   .withOpacity(0.2),
                               onTap: () {
                                 Navigator.push(
@@ -141,7 +143,16 @@ class WelcomePage extends StatelessWidget {
                               },
                               child: Container(
                                 padding: const EdgeInsets.all(20),
-                                child: Text(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    color: Colors.transparent,
+                                    border: Border.all(
+                                        color:
+                                            const Color.fromARGB(255, 255, 255, 255),
+                                        width: 4
+                                    )
+                                 ),
+                                child: const Text(
                                   "Sign in",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -149,15 +160,6 @@ class WelcomePage extends StatelessWidget {
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    color: Colors.transparent,
-                                    border: Border.all(
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                        width: 4
-                                    )
-                                 ),
                               ),
                             )
                           ),

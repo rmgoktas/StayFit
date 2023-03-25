@@ -12,28 +12,25 @@ class ExerciseDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MainAppBar(),
-      body: Container(
-        child: Column(
-          children: [
-            // Burada egzersizin adını görüntüleyebilirsiniz
-            Text(selectedExercise.name),
-            // Burada egzersiz detaylarını görüntüleyebilirsiniz
-            Expanded(
-              
-              child: ListView.builder(
-                itemCount: selectedExercise.exerciseDetailsList.length,
-                itemBuilder: (context, index) {
-                  final detail = selectedExercise.exerciseDetailsList[index];
-                  return ListTile(
-                    
-                    title: Text(detail.name),
-                    subtitle: Text(detail.description),
-                  );
-                },
-              ),
+      body: Column(
+        children: [
+          
+          Text(selectedExercise.name),
+          
+          Expanded(
+            
+            child: ListView.builder(
+              itemCount: selectedExercise.exerciseDetailsList.length,
+              itemBuilder: (context, index) {
+                final detail = selectedExercise.exerciseDetailsList[index];
+                return ListTile(
+                  title: Text(detail.name),
+                  subtitle: Text(detail.description),
+                );
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

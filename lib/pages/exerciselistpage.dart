@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/helpers/utils.dart';
 import 'package:stayfit_app/models/exercise.dart';
@@ -14,53 +16,51 @@ class ExerciseListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: const Drawer(),
       appBar: MainAppBar(),
-      body: Container(
-          child: Stack(
+      body: Stack(
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 15, bottom: 10),
-                child: Text(
-                  "Select the training zone:",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-              ),
-              Expanded(
-                  child: ListView.builder(
-                    padding: EdgeInsets.only(bottom: 110),
-                    itemCount: exercises.length,
-                    itemBuilder: (BuildContext ctx, int index) {
-                      return ExerciseCard(exercise: exercises[index],
-                      onCardClick: () {
-                        Navigator.push(
-                          context, 
-                          MaterialPageRoute(
-                            builder: (context) => SelectedExercisePage(
-                              selectedExercise: this.exercises[index],
-                              )
-                            )
-                        );
-                      }
-                  );
-                },
-              )
-             )
-            ],
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(top: 15, bottom: 10),
+            child: Text(
+              "Select the training zone:",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black, fontSize: 16),
+            ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: ExerciseNavBar(),
+          Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.only(bottom: 110),
+                itemCount: exercises.length,
+                itemBuilder: (BuildContext ctx, int index) {
+                  return ExerciseCard(exercise: exercises[index],
+                  onCardClick: () {
+                    Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => SelectedExercisePage(
+                          selectedExercise: exercises[index],
+                          )
+                        )
+                    );
+                  }
+              );
+            },
           )
+         )
         ],
-       )
       ),
+      const Positioned(
+        bottom: 0,
+        left: 0,
+        right: 0,
+        child: ExerciseNavBar(),
+      )
+        ],
+       ),
     );
   }
 }
