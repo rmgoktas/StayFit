@@ -17,9 +17,9 @@ class Dates extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: dateBoxes),
     );
   }
@@ -38,8 +38,8 @@ class DateBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 65,
-      height: 93,
+      width: 60,
+      height: 90,
       decoration: BoxDecoration(
           gradient: active
               ? const LinearGradient(colors: [

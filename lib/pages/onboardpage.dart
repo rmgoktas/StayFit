@@ -69,12 +69,12 @@ class _OnboardPageState extends State<OnboardPage> {
                                       Image.asset(
                                           'assets/onboardpage/${_content[index].imgName}'),
                                       const SizedBox(
-                                        height: 21,
+                                        height: 12,
                                       ),
                                       Text(
                                         _content[index].message,
                                         textAlign: TextAlign.center,
-                                        style: const TextStyle(fontSize: 17),
+                                        style: const TextStyle(fontSize: 15),
                                       ),
                                     ],
                                   )),

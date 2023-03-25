@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/pages/activitypage.dart';
+import 'package:stayfit_app/pages/bmiinputpage.dart';
 import 'package:stayfit_app/pages/exerciselistpage.dart';
 
 class ExerciseNavBar extends StatelessWidget {
@@ -56,7 +57,15 @@ class ExerciseNavBar extends StatelessWidget {
           ClipOval(
             child: Material(
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => 
+                      const BmiInputPage()
+                    ),
+                  );
+                },
                 icon: Image.asset("assets/navBar/bmi.png", width: 25, height: 25),
               ),
             ),
