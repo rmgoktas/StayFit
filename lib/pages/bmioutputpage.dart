@@ -64,6 +64,7 @@ class _BmiOutputPageState extends State<BmiOutputPage> {
                           fontWeight: FontWeight.w500),
                     ),
                     Text(
+                      //hot reload'da calisiyor sikinti var
                       widget.msg,
                       style: const TextStyle(
                           color: Colors.black,
