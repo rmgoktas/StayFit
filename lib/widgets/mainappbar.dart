@@ -28,7 +28,7 @@ class MainAppBarState extends State<MainAppBar> {
           margin: const EdgeInsets.only(right: 10),
           padding: const EdgeInsets.all(10),
           child: ClipOval(
-            child: Image.asset("assets/appBar/ahmethoca.jpeg"),
+            child: Image.asset("assets/appBar/profile.png"),
           ),
         )
       ],

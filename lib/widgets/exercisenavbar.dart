@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stayfit_app/pages/activitypage.dart';
 import 'package:stayfit_app/pages/bmiinputpage.dart';
 import 'package:stayfit_app/pages/exerciselistpage.dart';
+import 'package:stayfit_app/pages/stopwatch.dart';
 
 class ExerciseNavBar extends StatelessWidget {
   const ExerciseNavBar({super.key});
@@ -73,7 +74,15 @@ class ExerciseNavBar extends StatelessWidget {
           ClipOval(
             child: Material(
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => 
+                      const StopWatchPage()
+                    ),
+                  );
+                },
                 icon: Image.asset("assets/navBar/timer.png", width: 25, height: 25),
               ),
             ),
