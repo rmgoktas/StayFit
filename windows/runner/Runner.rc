@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "stayfit_app" "\0"
+            VALUE "FileDescription", "StayFit" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "stayfit_app" "\0"
+            VALUE "InternalName", "StayFit" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "stayfit_app.exe" "\0"
-            VALUE "ProductName", "stayfit_app" "\0"
+            VALUE "ProductName", "StayFit" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
