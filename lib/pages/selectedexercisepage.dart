@@ -1,5 +1,4 @@
 // ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/models/exercise.dart';
 import 'package:stayfit_app/pages/exercisedetailspage.dart';
@@ -29,6 +28,7 @@ class SelectedExercisePage extends StatelessWidget {
             Expanded(
                 child: GridView.count(
               crossAxisCount: 2,
+              //satırda kaç item old. ayarlanır
               children: List.generate(
                   selectedExercise.subExercises.length, (index) {
                 return GestureDetector(

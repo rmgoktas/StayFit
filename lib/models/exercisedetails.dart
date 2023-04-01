@@ -20,7 +20,7 @@ class ExerciseDetails extends Exercise {
           color: color,
           imgName: imgName,
           subExercises: subExercises,
-          exerciseDetailsList:exerciseDetailsList,
+          exerciseDetailsList: exerciseDetailsList,
           
 
         );

@@ -14,16 +14,16 @@ class ExerciseDetailsPage extends StatelessWidget {
       appBar: MainAppBar(),
       body: Column(
         children: [
-          
           Text(selectedExercise.name),
-          
           Expanded(
-            
             child: ListView.builder(
               itemCount: selectedExercise.exerciseDetailsList.length,
+              //liste uzunluğunu getirir
               itemBuilder: (context, index) {
+                //listeyi indexleri alıp kurar
                 final detail = selectedExercise.exerciseDetailsList[index];
                 return ListTile(
+                  //listeyi oluşturur, name boş karakter
                   title: Text(detail.name),
                   subtitle: Text(detail.description),
                 );

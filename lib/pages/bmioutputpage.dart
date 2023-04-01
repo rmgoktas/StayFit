@@ -18,6 +18,7 @@ class _BmiOutputPageState extends State<BmiOutputPage> {
   late CalculateResult calculator;
   
   @override
+  //initstate hesaplama için sonradan değiştirilebilir değerlerde ilk başlangıcı sağlar 
   void initState() {
     super.initState();
     calculator = CalculateResult(170, 70);
@@ -34,7 +35,6 @@ class _BmiOutputPageState extends State<BmiOutputPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Expanded(
-            flex: 1,
             child: Text(
               "Your Result:",
               style: TextStyle(
@@ -44,6 +44,7 @@ class _BmiOutputPageState extends State<BmiOutputPage> {
             ),
           ),
           Expanded(
+            //flex children'lar arası mesafeyi ayarlamak için kullanılır
               flex: 5,
               child: Container(
                 margin: const EdgeInsets.all(10),
@@ -53,11 +54,11 @@ class _BmiOutputPageState extends State<BmiOutputPage> {
                     color: const Color.fromARGB(255, 213, 214, 212)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //ilk ve son text'ler kenaralra sabit, aaralarında eşit uzaklık
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       widget.result,
-                      
                       style: const TextStyle(
                           color: Colors.black,
                           fontSize: 100,
@@ -74,7 +75,6 @@ class _BmiOutputPageState extends State<BmiOutputPage> {
                     Text(
                       widget.description,
                       textAlign: TextAlign.center,
-                      textWidthBasis: TextWidthBasis.parent,
                       style: const TextStyle(
                         color: Colors.black, 
                         fontWeight: FontWeight.bold,
@@ -88,6 +88,7 @@ class _BmiOutputPageState extends State<BmiOutputPage> {
               child: GestureDetector(
             onTap: () {
               Navigator.pop(context);
+              //pop önceki sayfaya döner
             },
             child: Container(
               alignment: Alignment.center,

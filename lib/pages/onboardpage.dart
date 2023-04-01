@@ -24,12 +24,7 @@ class _OnboardPageState extends State<OnboardPage> {
     super.initState();
     _controller = PageController();
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
+  //başlangıç fonsiyonu controller adlı bir page controller öğesi oluşturuyor
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +35,16 @@ class _OnboardPageState extends State<OnboardPage> {
             Expanded(
                 child: PageView(
                     controller: _controller,
+                    //sayfalar arası kaydırmayı sağlar
                     onPageChanged: (int page) {
                       setState(() {
                         pageIndex = page;
+                        //setState indexi değiştirerek mevcut sayfanın görünmesini sağlar
                       });
                     },
                     children: List.generate(
                         _content.length,
+                        //content isimli bir liste oluşturulur ve bu listenin her elemanı container içerir
                         (index) => Container(
                               padding: const EdgeInsets.all(50),
                               margin: const EdgeInsets.only(
@@ -60,6 +58,7 @@ class _OnboardPageState extends State<OnboardPage> {
                                             .withOpacity(0.3),
                                         blurRadius: 30,
                                         offset: Offset.zero)
+                                        //offset.zero x ve y'de gölge kaymasını eşitler
                                   ]),
                               child: Column(
                                 children: [
@@ -68,6 +67,7 @@ class _OnboardPageState extends State<OnboardPage> {
                                     children: [
                                       Image.asset(
                                           'assets/onboardpage/${_content[index].imgName}'),
+                                          //"$": string interpolasyon yöntemi. kodu daha okunaklı hale getirir
                                       const SizedBox(
                                         height: 12,
                                       ),
@@ -90,8 +90,10 @@ class _OnboardPageState extends State<OnboardPage> {
                         onTap: () {
                           _controller.animateTo(
                             MediaQuery.of(context).size.width * index,
+                            //mediaquery cihazdan ekran bilgisi alır, pikselle index elemanı çarpılır her cihazda tam görünür
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.easeInOut,
+                            //easeinout: animasyon başlangıçta ve sonda yavaşlar
                           );
                         },
                         child: Container(
@@ -137,7 +139,7 @@ class _OnboardPageState extends State<OnboardPage> {
                             fontSize: 18,
                             fontWeight: FontWeight.bold)))),
             const SizedBox(
-              height: 50,
+              height: 60,
             ),
           ],
         ));

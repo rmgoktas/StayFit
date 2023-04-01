@@ -24,6 +24,7 @@ class WelcomePage extends StatelessWidget {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
+                      //buton ölçüsünü ekran genişliğine gerer
                       children: [
                     Center(
                       child: ClipOval(
@@ -84,10 +85,12 @@ class WelcomePage extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 50),
                       child: ClipRRect(
+                        //splashin borderını kırpar, değer butonla aynı verilmedilir
                         borderRadius: BorderRadius.circular(50),
                         child: Material(
                           color: Colors.transparent,
                           child: InkWell(
+                            //dokunma efektini algılar. feedback verir
                             splashColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
                             highlightColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
                             onTap: () {
@@ -104,7 +107,7 @@ class WelcomePage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(50),
                                 color: Colors.transparent,
                                 border: Border.all(
-                                  color: const Color.fromARGB(255, 255, 255, 255),
+                                  color: Color.fromARGB(255, 255, 255, 255),
                                   width: 4
                                 )
                               ),

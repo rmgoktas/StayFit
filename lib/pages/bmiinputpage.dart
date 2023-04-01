@@ -128,11 +128,11 @@ class _BmiInputPageState extends State<BmiInputPage> {
                       height: 10,
                     ),
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      textBaseline: TextBaseline.alphabetic,
                       children: [
                         Text(
+                          //text öğresi içerisinde sayısal değer göstermek için tostring kullanılır
                           height.toString(),
                           style: const TextStyle(
                               fontSize: 35,
@@ -147,6 +147,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                     ),
                     SliderTheme(
                         data: SliderTheme.of(context).copyWith(
+                          //copywith değer değişirken aynı özellikleri kopyalar
                           activeTrackColor: const Color.fromARGB(255, 18, 255, 33),
                           overlayColor:
                               const Color.fromARGB(255, 28, 119, 46).withOpacity(0.4),
@@ -164,6 +165,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                           onChanged: (double v) {
                             setState(() {
                               height = v.round();
+                              //hassas değişim olsa bile tam sayı görünmesinin nedeni buradaki yuvarlama işlemidir
                             });
                           },
                         ))
@@ -211,7 +213,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                                   color: Color.fromARGB(255, 255, 255, 255)),
                               onPressed: () {
                                 setState(() {
-                                  if (weight > 10) {
+                                  if (weight > 0) {
                                     weight--;
                                   }
                                 });
@@ -238,6 +240,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                     ],
                   ),
                 ),
+                //expanded wight'den kalan boşluğun hepsini kullandırttırır
                 Expanded(
                   child: Row(
                     children: [
@@ -282,7 +285,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                                               255, 255, 255, 255)),
                                       onPressed: () {
                                         setState(() {
-                                          if (age > 5) {
+                                          if (age > 0) {
                                             age--;
                                           }
                                         });
@@ -348,5 +351,5 @@ class _BmiInputPageState extends State<BmiInputPage> {
         MaterialPageRoute(
             builder: (context) => BmiOutputPage(
                 obj.calculateResult(), obj.msg, obj.getDescription())));
-  }
+  }//calculateResult'tan veri alınır ve sonuç sayfasına gönderilir
 }

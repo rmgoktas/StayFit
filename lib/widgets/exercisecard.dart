@@ -47,7 +47,7 @@ class ExerciseCard extends StatelessWidget {
                   bottom: 15,
                   left: 2,
                   child: Padding(
-                    padding: const EdgeInsets.all(1),
+                    padding: const EdgeInsets.all(5),
                     child: Row(
                       children: [
                         const SizedBox(width: 10),

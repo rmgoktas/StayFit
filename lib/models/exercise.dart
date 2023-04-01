@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'exercisedetails.dart';
 
 

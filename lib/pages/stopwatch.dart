@@ -13,6 +13,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
   int seconds = 0, minutes = 0, hours = 0;
   String digitSeconds = "00", digitMinutes = "00", digitHours = "00";
   Timer? timer;
+  // "?": değişkenin null olabileceğini belirtir
   bool started = false;
   List laps = [];
 
@@ -80,6 +81,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
         backgroundColor: Colors.white,
         appBar: MainAppBar(),
         body: SafeArea(
+            //alttaki butonların cihaz borderlarına değmemesini sağlar
             child: Padding(
           padding: const EdgeInsets.all(5),
           child: Column(
@@ -98,7 +100,8 @@ class _StopWatchPageState extends State<StopWatchPage> {
               Center(
                 child: Text(
                   "$digitHours:$digitMinutes:$digitSeconds",
-                  style: const TextStyle(fontSize: 70, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                      fontSize: 70, fontWeight: FontWeight.w500),
                 ),
               ),
               Container(
@@ -117,13 +120,15 @@ class _StopWatchPageState extends State<StopWatchPage> {
                           children: [
                             Text(
                               "Lap ${index + 1}",
-                              style:
-                                  const TextStyle(color: Colors.black, fontSize: 16),
+                              //tur sayısını gösterir
+                              style: const TextStyle(
+                                  color: Colors.black, fontSize: 16),
                             ),
                             Text(
                               "${laps[index]}",
-                              style:
-                                  const TextStyle(color: Colors.black, fontSize: 16),
+                              //tur süresini gösterir
+                              style: const TextStyle(
+                                  color: Colors.black, fontSize: 16),
                             )
                           ]),
                     );
@@ -140,12 +145,15 @@ class _StopWatchPageState extends State<StopWatchPage> {
                       child: RawMaterialButton(
                     onPressed: () {
                       (!started) ? start() : stop();
+                      //sayaç başlamamışsa buton start işlevi, başlamışsa stop görecek şekilde değişir.
                     },
                     shape: const StadiumBorder(
+                      //butona circular round verir
                         side: BorderSide(
                             color: Color.fromARGB(255, 32, 255, 12), width: 3)),
                     child: Text(
                       (!started) ? "Start" : "Pause",
+                      //sayaç başlamamışsa buton text'i start işlevi, başlamışsa pause gösterecek şekilde değişir.
                       style: const TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
                     ),

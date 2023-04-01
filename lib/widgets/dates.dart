@@ -19,7 +19,7 @@ class Dates extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: dateBoxes),
     );
   }
@@ -50,11 +50,13 @@ class DateBox extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           border: Border.all(color: Colors.white)),
       child: DefaultTextStyle.merge(
+        //alt widgetların textstyle'ı aynı olur fakat merge işlemi ile spesifik stil yaratılabilir
         style: active ? const TextStyle(color: Colors.white) : null,
         child: Column(children: [
           const SizedBox(height: 10),
           Text(
             daysOfWeek[date.weekday]!,
+            //ünlem ile değişkenin null olmadığı varsayılır, aksi taktirde program runtime'da hata verebilir
             style: const TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.bold,

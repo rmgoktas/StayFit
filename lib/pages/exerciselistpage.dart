@@ -15,19 +15,17 @@ class ExerciseListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: const Drawer(),
+    return Scaffold( 
       appBar: MainAppBar(),
       body: Stack(
         children: [
       Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Padding(
             padding: EdgeInsets.only(top: 15, bottom: 10),
             child: Text(
               "Select the training zone:",
-              textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black, fontSize: 16),
             ),
           ),
@@ -35,7 +33,7 @@ class ExerciseListPage extends StatelessWidget {
               child: ListView.builder(
                 padding: const EdgeInsets.only(bottom: 110),
                 itemCount: exercises.length,
-                itemBuilder: (BuildContext ctx, int index) {
+                itemBuilder: (BuildContext context, int index) {
                   return ExerciseCard(exercise: exercises[index],
                   onCardClick: () {
                     Navigator.push(
@@ -58,6 +56,7 @@ class ExerciseListPage extends StatelessWidget {
         left: 0,
         right: 0,
         child: ExerciseNavBar(),
+        //navBar sol, sağ ve tabana sıfırlanır
       )
         ],
        ),

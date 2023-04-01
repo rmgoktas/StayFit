@@ -25,7 +25,7 @@ class MainAppBarState extends State<MainAppBar> {
       elevation: 0.0,
       actions: [
         Container(
-          margin: const EdgeInsets.only(right: 10),
+          margin: const EdgeInsets.only(right: 15),
           padding: const EdgeInsets.all(10),
           child: ClipOval(
             child: Image.asset("assets/appBar/profile.png"),
