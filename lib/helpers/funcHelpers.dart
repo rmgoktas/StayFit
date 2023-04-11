@@ -9,23 +9,22 @@ final Map<int, String> daysOfWeek = {
   6: "SAT",
   7: "SUN",
 };
+//haftanın hangi günüyse onun adını gönderir
+
 
 int randNumberBetween(int min, int max) {
   return Random().nextInt(max - min) + min;
 }
 
 String formatNumber(int number) {
-  return number.toString().replaceAllMapped(
-        RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-        (Match m) => '${m[1]},',
-      );
+  return number.toString();
 }
 
 class CalculateResult {
   final int height;
   final int weight;
   late double result;
-  late String msg="";
+  late String msg = "";
 
   CalculateResult(this.height, this.weight);
 
@@ -47,5 +46,3 @@ class CalculateResult {
     }
   }
 }
-
-

@@ -3,7 +3,6 @@ import 'package:stayfit_app/widgets/exercisenavbar.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 import 'package:stayfit_app/widgets/dates.dart';
 import 'package:stayfit_app/widgets/steps.dart';
-import 'package:stayfit_app/widgets/graph.dart';
 import 'package:stayfit_app/widgets/info.dart';
 
 class ActivityPage extends StatelessWidget {
@@ -15,12 +14,13 @@ class ActivityPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: MainAppBar(),  
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: const [
           Dates(),
+          SizedBox(height: 80),
           Steps(),
-          Graph(),
+          SizedBox(height: 100),
           Info(),
-          SizedBox(height: 25),
           ExerciseNavBar()
         ],
       )

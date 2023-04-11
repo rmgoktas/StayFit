@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
-import '../models/exercise.dart';
+import '../templates/exercise.dart';
 
 class ExerciseCard extends StatelessWidget {
   Exercise exercise;
@@ -33,14 +33,12 @@ class ExerciseCard extends StatelessWidget {
                   child: Container(
                       height: 120,
                       decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              bottomRight: Radius.circular(20)),
+                          borderRadius: BorderRadius.circular(20),
                           gradient: LinearGradient(
                               begin: Alignment.bottomCenter,
                               end: Alignment.topCenter,
                               colors: [
-                                Colors.black.withOpacity(0.7),
+                                Colors.black.withOpacity(0.8),
                                 Colors.transparent
                               ])))),
               Positioned(

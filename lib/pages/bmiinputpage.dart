@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/pages/bmioutputpage.dart';
-import 'package:stayfit_app/widgets/helpers.dart';
+import 'package:stayfit_app/helpers/funcHelpers.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -30,7 +30,8 @@ class _BmiInputPageState extends State<BmiInputPage> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: MainAppBar(),
-        body: Column(children: [
+        body: Column(
+          children: [
           Expanded(
             child: Row(
               children: [
@@ -42,7 +43,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                       });
                     },
                     child: Container(
-                      margin: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(20),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
@@ -77,7 +78,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                       });
                     },
                     child: Container(
-                      margin: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(20),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
@@ -150,22 +151,23 @@ class _BmiInputPageState extends State<BmiInputPage> {
                           //copywith değer değişirken aynı özellikleri kopyalar
                           activeTrackColor: const Color.fromARGB(255, 18, 255, 33),
                           overlayColor:
-                              const Color.fromARGB(255, 28, 119, 46).withOpacity(0.4),
+                              const Color.fromARGB(255, 28, 119, 46).withOpacity(0.6),
                           inactiveTrackColor: const Color.fromARGB(255, 0, 0, 0),
                           thumbShape:
-                              const RoundSliderThumbShape(enabledThumbRadius: 16),
+                              const RoundSliderThumbShape(enabledThumbRadius: 12),
                           overlayShape:
-                              const RoundSliderOverlayShape(overlayRadius: 30),
+                              const RoundSliderOverlayShape(overlayRadius: 24),
                           thumbColor: const Color.fromARGB(255, 25, 247, 96),
                         ),
                         child: Slider(
                           value: height.toDouble(),
+                          //slider'ın value özell. double olması gerekiyor
                           min: 100,
                           max: 250,
                           onChanged: (double v) {
                             setState(() {
                               height = v.round();
-                              //hassas değişim olsa bile tam sayı görünmesinin nedeni buradaki yuvarlama işlemidir
+                              //v değişkeni kullanıcı seçimini tutar, yuvarlar ve height'in yeni durumu oluşur
                             });
                           },
                         ))
@@ -240,7 +242,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                     ],
                   ),
                 ),
-                //expanded wight'den kalan boşluğun hepsini kullandırttırır
+                //expanded weight'den kalan boşluğun hepsini kullandırttırır
                 Expanded(
                   child: Row(
                     children: [
@@ -351,5 +353,5 @@ class _BmiInputPageState extends State<BmiInputPage> {
         MaterialPageRoute(
             builder: (context) => BmiOutputPage(
                 obj.calculateResult(), obj.msg, obj.getDescription())));
-  }//calculateResult'tan veri alınır ve sonuç sayfasına gönderilir
+  }
 }

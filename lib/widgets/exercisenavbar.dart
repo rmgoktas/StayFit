@@ -18,10 +18,12 @@ class ExerciseNavBar extends StatelessWidget {
         BoxShadow(
             blurRadius: 20,
             color: Colors.black.withOpacity(0.2),
-            offset: Offset.zero)
+            )
       ]),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //spaceAround boşluk değerinin yarısını başta ve sonda bırakır,
+        //spaceEvenly'den daha fazla nefes alan tasarım oluşturulur
         children: [
           ClipOval(
             child: Material(

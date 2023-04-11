@@ -3,15 +3,17 @@
 import 'package:flutter/material.dart';
 
 class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
-  Color themeColor;
+  Color color;
 
-  MainAppBar({super.key, this.themeColor = Colors.white});
+  MainAppBar({super.key, this.color = Colors.white});
 
   @override
   MainAppBarState createState() => MainAppBarState();
 
   @override
   Size get preferredSize => const Size.fromHeight(80);
+  //appbar boyutunu kendisi ayarlar
+  //diğer beklenmeyen ölçekleme hatasının önüne geçilir
 }
 
 class MainAppBarState extends State<MainAppBar> {
@@ -22,7 +24,8 @@ class MainAppBarState extends State<MainAppBar> {
           width: 65, height: 65, child: Image.asset("assets/blackicon.png")),
       backgroundColor: Colors.transparent,
       foregroundColor: Colors.black,
-      elevation: 0.0,
+      elevation: 0,
+      //elevation ile gölgeleme 0, arkaplana tam uyum
       actions: [
         Container(
           margin: const EdgeInsets.only(right: 15),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:stayfit_app/models/exercise.dart';
+import 'package:stayfit_app/templates/exercise.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 
 class ExerciseDetailsPage extends StatelessWidget {
-  final Exercise selectedExercise;
+  Exercise selectedExercise;
 
-  const ExerciseDetailsPage({Key? key, required this.selectedExercise}) 
+  ExerciseDetailsPage({Key? key, required this.selectedExercise}) 
   : super(key: key);
 
   @override
@@ -18,14 +18,10 @@ class ExerciseDetailsPage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemCount: selectedExercise.exerciseDetailsList.length,
-              //liste uzunluğunu getirir
               itemBuilder: (context, index) {
-                //listeyi indexleri alıp kurar
                 final detail = selectedExercise.exerciseDetailsList[index];
                 return ListTile(
-                  //listeyi oluşturur, name boş karakter
-                  title: Text(detail.name),
-                  subtitle: Text(detail.description),
+                  title: Text(detail.description),
                 );
               },
             ),

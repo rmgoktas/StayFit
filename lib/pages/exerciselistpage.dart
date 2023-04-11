@@ -1,8 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:stayfit_app/helpers/utils.dart';
-import 'package:stayfit_app/models/exercise.dart';
+import 'package:stayfit_app/helpers/contentHelpers.dart';
+import 'package:stayfit_app/templates/exercise.dart';
 import 'package:stayfit_app/pages/selectedexercisepage.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 import '../widgets/exercisecard.dart';
@@ -11,11 +11,12 @@ import '../widgets/exercisenavbar.dart';
 
 class ExerciseListPage extends StatelessWidget {
   
-  List<Exercise> exercises = Utils.getMockedExercises();
+  List<Exercise> exercises = Utils.getContentOfExercises();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
+      drawer: const Drawer(),
       appBar: MainAppBar(),
       body: Stack(
         children: [
@@ -23,7 +24,7 @@ class ExerciseListPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Padding(
-            padding: EdgeInsets.only(top: 15, bottom: 10),
+            padding: EdgeInsets.all(15),
             child: Text(
               "Select the training zone:",
               style: TextStyle(color: Colors.black, fontSize: 16),
@@ -56,7 +57,6 @@ class ExerciseListPage extends StatelessWidget {
         left: 0,
         right: 0,
         child: ExerciseNavBar(),
-        //navBar sol, sağ ve tabana sıfırlanır
       )
         ],
        ),

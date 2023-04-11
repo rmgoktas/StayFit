@@ -43,7 +43,7 @@ class Stats extends StatelessWidget {
               fontWeight: FontWeight.w900
             ),
             children: [
-              const TextSpan(text: ' '),
+              TextSpan(text: ' '),
               TextSpan(
                 text: unit,
                 style: const TextStyle(

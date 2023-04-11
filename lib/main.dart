@@ -4,15 +4,13 @@
 // )
 // ignore_for_file: must_be_immutable, use_key_in_widget_constructors
 
-
 import "package:flutter/material.dart";
 import "package:stayfit_app/pages/welcomepage.dart";
 
 void main() {
   runApp(MaterialApp(
-      home: SplashPage(duration: 3, goToPage: const WelcomePage())
-     )
-  );
+      debugShowCheckedModeBanner: false,
+      home: SplashPage(duration: 3, goToPage: const WelcomePage())));
 }
 
 class SplashPage extends StatelessWidget {
@@ -24,7 +22,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: duration), () {
-      Navigator.pushReplacement(
+      Navigator.push(
           context, MaterialPageRoute(builder: (context) => goToPage));
     });
 

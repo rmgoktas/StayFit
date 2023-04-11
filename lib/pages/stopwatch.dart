@@ -10,8 +10,12 @@ class StopWatchPage extends StatefulWidget {
 }
 
 class _StopWatchPageState extends State<StopWatchPage> {
-  int seconds = 0, minutes = 0, hours = 0;
-  String digitSeconds = "00", digitMinutes = "00", digitHours = "00";
+  int seconds = 0;
+  int minutes = 0;
+  int hours = 0;
+  String digitSeconds = "00";
+  String digitMinutes = "00";
+  String digitHours = "00";
   Timer? timer;
   // "?": değişkenin null olabileceğini belirtir
   bool started = false;
@@ -50,7 +54,9 @@ class _StopWatchPageState extends State<StopWatchPage> {
   void start() {
     started = true;
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      //sayacın ne kadar süren periyotta çalışacağı belirlenir
       int localSeconds = seconds + 1;
+      //saniye sayısı bir artırılarak zamanlayıcının işleyişi sağlanır
       int localMinutes = minutes;
       int localHours = hours;
 
@@ -69,8 +75,8 @@ class _StopWatchPageState extends State<StopWatchPage> {
         hours = localHours;
 
         digitSeconds = (seconds >= 10) ? "$seconds" : "0$seconds";
-        digitHours = (hours >= 10) ? "$hours" : "0$hours";
         digitMinutes = (minutes >= 10) ? "$minutes" : "0$minutes";
+        digitHours = (hours >= 10) ? "$hours" : "0$hours";
       });
     });
   }
@@ -81,11 +87,10 @@ class _StopWatchPageState extends State<StopWatchPage> {
         backgroundColor: Colors.white,
         appBar: MainAppBar(),
         body: SafeArea(
-            //alttaki butonların cihaz borderlarına değmemesini sağlar
             child: Padding(
           padding: const EdgeInsets.all(5),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Center(
@@ -120,13 +125,11 @@ class _StopWatchPageState extends State<StopWatchPage> {
                           children: [
                             Text(
                               "Lap ${index + 1}",
-                              //tur sayısını gösterir
                               style: const TextStyle(
                                   color: Colors.black, fontSize: 16),
                             ),
                             Text(
                               "${laps[index]}",
-                              //tur süresini gösterir
                               style: const TextStyle(
                                   color: Colors.black, fontSize: 16),
                             )
@@ -142,18 +145,15 @@ class _StopWatchPageState extends State<StopWatchPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                      child: RawMaterialButton(
+                      child: MaterialButton(
                     onPressed: () {
                       (!started) ? start() : stop();
-                      //sayaç başlamamışsa buton start işlevi, başlamışsa stop görecek şekilde değişir.
                     },
                     shape: const StadiumBorder(
-                      //butona circular round verir
                         side: BorderSide(
                             color: Color.fromARGB(255, 32, 255, 12), width: 3)),
                     child: Text(
                       (!started) ? "Start" : "Pause",
-                      //sayaç başlamamışsa buton text'i start işlevi, başlamışsa pause gösterecek şekilde değişir.
                       style: const TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
                     ),

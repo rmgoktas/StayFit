@@ -2,11 +2,11 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:stayfit_app/models/onboardcontent.dart';
+import 'package:stayfit_app/templates/onboardcontent.dart';
 import 'package:stayfit_app/pages/exerciselistpage.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 
-import '../helpers/utils.dart';
+import '../helpers/contentHelpers.dart';
 
 class OnboardPage extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class OnboardPage extends StatefulWidget {
 }
 
 class _OnboardPageState extends State<OnboardPage> {
-  final List<OnboardContent> _content = Utils.getOnboard();
+  final List<OnboardContent> _content = Utils.getScreen();
   int pageIndex = 0;
   late PageController _controller;
 
@@ -44,11 +44,9 @@ class _OnboardPageState extends State<OnboardPage> {
                     },
                     children: List.generate(
                         _content.length,
-                        //content isimli bir liste oluşturulur ve bu listenin her elemanı container içerir
                         (index) => Container(
+                              margin: const EdgeInsets.all(40),
                               padding: const EdgeInsets.all(50),
-                              margin: const EdgeInsets.only(
-                                  left: 40, right: 40, top: 40, bottom: 40),
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(50),
@@ -56,18 +54,14 @@ class _OnboardPageState extends State<OnboardPage> {
                                     BoxShadow(
                                         color: const Color.fromARGB(255, 0, 0, 0)
                                             .withOpacity(0.3),
-                                        blurRadius: 30,
-                                        offset: Offset.zero)
-                                        //offset.zero x ve y'de gölge kaymasını eşitler
+                                        blurRadius: 30,)
                                   ]),
                               child: Column(
                                 children: [
-                                  Expanded(
-                                      child: Column(
+                                  Column(
                                     children: [
                                       Image.asset(
                                           'assets/onboardpage/${_content[index].imgName}'),
-                                          //"$": string interpolasyon yöntemi. kodu daha okunaklı hale getirir
                                       const SizedBox(
                                         height: 12,
                                       ),
@@ -77,8 +71,7 @@ class _OnboardPageState extends State<OnboardPage> {
                                         style: const TextStyle(fontSize: 15),
                                       ),
                                     ],
-                                  )),
-                                  
+                                  ),
                                 ],
                               ),
                             )))),
@@ -93,13 +86,12 @@ class _OnboardPageState extends State<OnboardPage> {
                             //mediaquery cihazdan ekran bilgisi alır, pikselle index elemanı çarpılır her cihazda tam görünür
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.easeInOut,
-                            //easeinout: animasyon başlangıçta ve sonda yavaşlar
                           );
                         },
                         child: Container(
-                          width: 20,
-                          height: 20,
-                          margin: const EdgeInsets.all(10),
+                          width: 25,
+                          height: 25,
+                          margin: const EdgeInsets.all(15),
                           decoration: BoxDecoration(
                               color: Colors.black,
                               borderRadius: BorderRadius.circular(20),
@@ -107,7 +99,7 @@ class _OnboardPageState extends State<OnboardPage> {
                                 width: 6,
                                 color: pageIndex == index
                                     ? const Color.fromARGB(255, 129, 129, 129)
-                                    : Theme.of(context).canvasColor,
+                                    : const Color.fromARGB(255, 0, 0, 0),
                               )),
                         ),
                       )),
@@ -116,10 +108,8 @@ class _OnboardPageState extends State<OnboardPage> {
               height: 20,
             ),
             Container(
-                width: double
-                    .infinity, // Butonun genişliğini tam olarak kaplaması için
                 padding:
-                    const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+                    const EdgeInsets.all(30),
                 child: MaterialButton(
                     onPressed: () {
                       Navigator.push(
@@ -132,7 +122,7 @@ class _OnboardPageState extends State<OnboardPage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50)),
                     color: const Color.fromARGB(255, 0, 0, 0),
-                    padding: const EdgeInsets.all(25),
+                    padding: const EdgeInsets.all(30),
                     child: const Text("Let's Exercise !",
                         style: TextStyle(
                             color: Color.fromARGB(255, 255, 255, 255),

@@ -13,7 +13,7 @@ class WelcomePage extends StatelessWidget {
             child: Stack(children: [
               Positioned.fill(
                   child: Opacity(
-                  opacity: 0.3,
+                  opacity: 0.5,
                   child: Image.asset(
                     "assets/welcomeback.jpg", 
                     fit: (BoxFit.cover)
@@ -24,7 +24,6 @@ class WelcomePage extends StatelessWidget {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      //buton ölçüsünü ekran genişliğine gerer
                       children: [
                     Center(
                       child: ClipOval(

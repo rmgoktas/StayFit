@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stayfit_app/widgets/helpers.dart';
+import 'package:stayfit_app/helpers/funcHelpers.dart';
 
 class Dates extends StatelessWidget {
   const Dates({Key? key}) : super(key: key);
@@ -15,13 +15,9 @@ class Dates extends StatelessWidget {
       dateBoxes.add(DateBox(date: date, active: i == 3));
       date = date.add(const Duration(days: 1));
     }
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: dateBoxes),
-    );
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.center, 
+        children: dateBoxes);
   }
 }
 
@@ -32,6 +28,7 @@ class DateBox extends StatelessWidget {
   const DateBox({
     Key? key,
     this.active = false,
+    //aktiflik görünümü varsayılanı kapalı olarak ayarlandı
     required this.date,
   }) : super(key: key);
 
@@ -45,18 +42,16 @@ class DateBox extends StatelessWidget {
               ? const LinearGradient(colors: [
                   Color.fromARGB(158, 210, 245, 85),
                   Color.fromARGB(255, 0, 255, 8)
-                ], begin: Alignment.topCenter)
+                ], begin: Alignment.topLeft)
               : null,
           borderRadius: BorderRadius.circular(15),
           border: Border.all(color: Colors.white)),
       child: DefaultTextStyle.merge(
-        //alt widgetların textstyle'ı aynı olur fakat merge işlemi ile spesifik stil yaratılabilir
-        style: active ? const TextStyle(color: Colors.white) : null,
+        style: active ? const TextStyle(color: Colors.white) : const TextStyle(color: Colors.black) ,
         child: Column(children: [
           const SizedBox(height: 10),
           Text(
             daysOfWeek[date.weekday]!,
-            //ünlem ile değişkenin null olmadığı varsayılır, aksi taktirde program runtime'da hata verebilir
             style: const TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.bold,
@@ -64,6 +59,8 @@ class DateBox extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(date.day.toString(),
+          //.day : datetime sınıfında tanımlanmış özellik
+          //date değişkenindeki tarihin gün değerini döndürür
               style: const TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w500,
