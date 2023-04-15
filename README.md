@@ -2,4 +2,5 @@
 
 https://rmgoktas.github.io/stayfit_app_web
 
+bit.ly/stayfit_app
 
