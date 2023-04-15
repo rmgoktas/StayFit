@@ -16,20 +16,20 @@ class _StopWatchPageState extends State<StopWatchPage> {
   String digitSeconds = "00";
   String digitMinutes = "00";
   String digitHours = "00";
-  Timer? timer;
+  late Timer timer;
   // "?": değişkenin null olabileceğini belirtir
   bool started = false;
   List laps = [];
 
   void stop() {
-    timer!.cancel();
+    timer.cancel();
     setState(() {
       started = false;
     });
   }
 
   void reset() {
-    timer!.cancel();
+    timer.cancel();
     setState(() {
       seconds = 0;
       minutes = 0;
@@ -54,9 +54,8 @@ class _StopWatchPageState extends State<StopWatchPage> {
   void start() {
     started = true;
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      //sayacın ne kadar süren periyotta çalışacağı belirlenir
+      //sayacın ne kadar süren periyotta tetikleneceği belirlenir
       int localSeconds = seconds + 1;
-      //saniye sayısı bir artırılarak zamanlayıcının işleyişi sağlanır
       int localMinutes = minutes;
       int localHours = hours;
 
