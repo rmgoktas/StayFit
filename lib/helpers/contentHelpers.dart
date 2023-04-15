@@ -4,8 +4,7 @@ import 'package:stayfit_app/templates/onboardcontent.dart';
 import '../templates/exercisedetails.dart';
 import '../templates/subexercise.dart';
 
-
-class Utils {
+class Content {
   static List<OnboardContent> getScreen() {
     return [
       OnboardContent(

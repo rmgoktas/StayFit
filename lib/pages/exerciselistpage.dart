@@ -11,7 +11,7 @@ import '../widgets/exercisenavbar.dart';
 
 class ExerciseListPage extends StatelessWidget {
   
-  List<Exercise> exercises = Utils.getContentOfExercises();
+  List<Exercise> exercises = Content.getContentOfExercises();
 
   @override
   Widget build(BuildContext context) {

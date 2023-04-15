@@ -15,7 +15,7 @@ class OnboardPage extends StatefulWidget {
 }
 
 class _OnboardPageState extends State<OnboardPage> {
-  final List<OnboardContent> _content = Utils.getScreen();
+  final List<OnboardContent> _content = Content.getScreen();
   int pageIndex = 0;
   late PageController _controller;
 

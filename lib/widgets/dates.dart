@@ -8,7 +8,6 @@ class Dates extends StatelessWidget {
   Widget build(BuildContext context) {
     List<DateBox> dateBoxes = [];
 
-    //DateTime date = DateTime.parse('2021-11-08');
     DateTime date = DateTime.now().subtract(const Duration(days: 3));
 
     for (int i = 0; i < 6; i++) {

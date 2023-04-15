@@ -1,14 +1,10 @@
 // ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/pages/bmioutputpage.dart';
 import 'package:stayfit_app/helpers/funcHelpers.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-enum Gender {
-  male,
-  female,
-}
 
 class BmiInputPage extends StatefulWidget {
   const BmiInputPage({super.key});
@@ -23,7 +19,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
   int height = 178;
   int weight = 62;
   int age = 21;
-  Gender selectedGender = Gender.male;
+  bool selectedGender = true;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +35,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        selectedGender = Gender.male;
+                        selectedGender = true;
                       });
                     },
                     child: Container(
@@ -47,7 +43,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
-                          color: selectedGender == Gender.male
+                          color: selectedGender == true
                               ? activeColor
                               : inactiveColor),
                       child: Column(
@@ -74,7 +70,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        selectedGender = Gender.female;
+                        selectedGender = false;
                       });
                     },
                     child: Container(
@@ -82,7 +78,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
-                          color: selectedGender == Gender.female
+                          color: selectedGender == false
                               ? activeColor
                               : inactiveColor),
                       child: Column(
@@ -133,7 +129,6 @@ class _BmiInputPageState extends State<BmiInputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          //text öğresi içerisinde sayısal değer göstermek için tostring kullanılır
                           height.toString(),
                           style: const TextStyle(
                               fontSize: 35,
@@ -242,7 +237,6 @@ class _BmiInputPageState extends State<BmiInputPage> {
                     ],
                   ),
                 ),
-                //expanded weight'den kalan boşluğun hepsini kullandırttırır
                 Expanded(
                   child: Row(
                     children: [
@@ -325,7 +319,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
           ),
           GestureDetector(
             onTap: () {
-              navigateToBmiOutputScreen(double.nan);
+              navigateToBmiOutputScreen(null);
             },
             child: Container(
                 padding: const EdgeInsets.only(bottom: 25),
@@ -346,7 +340,7 @@ class _BmiInputPageState extends State<BmiInputPage> {
         ]));
   }
 
-  void navigateToBmiOutputScreen(double result) {
+  void navigateToBmiOutputScreen(double? result) {
     CalculateResult obj = CalculateResult(height, weight);
     Navigator.push(
         context,

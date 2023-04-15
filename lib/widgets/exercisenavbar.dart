@@ -22,8 +22,6 @@ class ExerciseNavBar extends StatelessWidget {
       ]),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //spaceAround boşluk değerinin yarısını başta ve sonda bırakır,
-        //spaceEvenly'den daha fazla nefes alan tasarım oluşturulur
         children: [
           ClipOval(
             child: Material(

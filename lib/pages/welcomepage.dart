@@ -89,7 +89,6 @@ class WelcomePage extends StatelessWidget {
                         child: Material(
                           color: Colors.transparent,
                           child: InkWell(
-                            //dokunma efektini algılar. feedback verir
                             splashColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
                             highlightColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
                             onTap: () {
