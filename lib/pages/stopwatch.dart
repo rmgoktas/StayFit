@@ -17,7 +17,6 @@ class _StopWatchPageState extends State<StopWatchPage> {
   String digitMinutes = "00";
   String digitHours = "00";
   late Timer timer;
-  // "?": değişkenin null olabileceğini belirtir
   bool started = false;
   List laps = [];
 
