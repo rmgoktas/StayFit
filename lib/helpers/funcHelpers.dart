@@ -9,7 +9,7 @@ final Map<int, String> daysOfWeek = {
   6: "SAT",
   7: "SUN",
 };
-//haftanın hangi günüyse onun adını gönderir
+
 
 
 int randNumberBetween(int min, int max) {

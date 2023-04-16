@@ -14,7 +14,12 @@ class ExerciseDetailsPage extends StatelessWidget {
       appBar: MainAppBar(),
       body: Column(
         children: [
-          Text(selectedExercise.name),
+          Text(selectedExercise.name,
+            style: TextStyle(
+              fontSize: 20
+            ),
+          ),
+          SizedBox(height: 20,),
           Expanded(
             child: ListView.builder(
               itemCount: selectedExercise.exerciseDetailsList.length,
