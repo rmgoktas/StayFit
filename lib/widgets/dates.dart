@@ -58,8 +58,6 @@ class DateBox extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(date.day.toString(),
-          //.day : datetime sınıfında tanımlanmış özellik
-          //date değişkenindeki tarihin gün değerini döndürür
               style: const TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w500,

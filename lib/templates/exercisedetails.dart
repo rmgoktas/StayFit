@@ -3,7 +3,7 @@ import 'exercise.dart';
 
 class ExerciseDetails extends Exercise {
   
-  final String description;
+  String description;
 
   ExerciseDetails({
     
