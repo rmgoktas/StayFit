@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "246854620973",
+    "project_id": "stayfit-app-301da",
+    "storage_bucket": "stayfit-app-301da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246854620973:android:d6730e41a28f848c57a5a4",
+        "android_client_info": {
+          "package_name": "com.rmgoktas.stayFit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246854620973-gndqv7ge5solleh77fl20daeu8ge2s31.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rmgoktas.stayFit",
+            "certificate_hash": "b1070aa8a87a1b0b8cd630b7e85769b40ef5a049"
+          }
+        },
+        {
+          "client_id": "246854620973-ohrm27n7cfl8lu5d740j0h1s66vnkkua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDrIdMO9ucHPeAnDQXHRKXvy1J7DC3L_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246854620973-8d4u7t993cjtnmaipp24rls80i0qc43s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "246854620973-0lrudvk1hmgnv782so6v250c96fad53n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rmgoktas.stayFit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

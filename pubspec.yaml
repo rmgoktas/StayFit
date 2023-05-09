@@ -1,5 +1,5 @@
 name: stayfit_app
-description: A new Flutter project.
+description: Health & Exercise App
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -37,6 +37,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  firebase_core: ^2.11.0
+  firebase_auth: ^4.5.0
+  google_sign_in: ^6.1.0
 
 flutter_icons:
   android: true
