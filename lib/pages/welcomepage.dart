@@ -84,6 +84,7 @@ class WelcomePage extends StatelessWidget {
                             highlightColor:
                                 const Color.fromARGB(255, 255, 255, 255)
                                     .withOpacity(0.2),
+                            
                             onTap: () async {
                               bool success =
                                   await loginService.signInWithGoogle();
@@ -104,7 +105,7 @@ class WelcomePage extends StatelessWidget {
                                       color: Color.fromARGB(255, 255, 255, 255),
                                       width: 4)),
                               child: const Text(
-                                "Start Now",
+                                "Sign In",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 18,
@@ -130,6 +131,7 @@ class WelcomePage extends StatelessWidget {
                               highlightColor:
                                   const Color.fromARGB(255, 255, 255, 255)
                                       .withOpacity(0.2),
+                              
                               onTap: () {
                                 Navigator.push(
                                     context,
@@ -147,7 +149,7 @@ class WelcomePage extends StatelessWidget {
                                             255, 255, 255, 255),
                                         width: 4)),
                                 child: const Text(
-                                  "Sign in",
+                                  "Start Now",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 18,
