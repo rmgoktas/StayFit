@@ -8,7 +8,7 @@ class LoginService {
   }
 
   Future<bool> signInWithGoogle() async {
-    // Trigger the authentication flow
+    
     GoogleSignIn googleSignIn = GoogleSignIn();
 
     final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
@@ -17,11 +17,11 @@ class LoginService {
       return false;
     }
 
-    // Obtain the auth details from the request
+    
     final GoogleSignInAuthentication googleAuth =
         await googleUser.authentication;
 
-    // Create a new credential
+    
     final OAuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
