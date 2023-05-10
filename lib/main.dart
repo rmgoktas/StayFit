@@ -10,7 +10,7 @@ import "package:stayfit_app/pages/welcomepage.dart";
 void main() {
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashPage(duration: 3, goToPage: const WelcomePage())));
+      home: SplashPage(duration: 3, goToPage: WelcomePage())));
 }
 
 class SplashPage extends StatelessWidget {
