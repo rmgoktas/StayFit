@@ -1,13 +1,16 @@
 import "package:flutter/material.dart";
+import "package:provider/provider.dart";
 import "package:stayfit_app/pages/exerciselistpage.dart";
 import "package:stayfit_app/pages/onboardpage.dart";
 import "package:stayfit_app/services/loginService.dart";
 
 class WelcomePage extends StatelessWidget {
-  LoginService loginService = LoginService();
-
+  
   @override
   Widget build(BuildContext context) {
+    
+    LoginService loginService = Provider.of<LoginService>(context, listen: false);
+    
     return Scaffold(
         body: Container(
             color: Colors.black,
@@ -84,16 +87,15 @@ class WelcomePage extends StatelessWidget {
                             highlightColor:
                                 const Color.fromARGB(255, 255, 255, 255)
                                     .withOpacity(0.2),
-                            
                             onTap: () async {
                               bool success =
                                   await loginService.signInWithGoogle();
                               if (success) {
                                 Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ExerciseListPage()));
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ExerciseListPage()));
                               }
                             },
                             child: Container(
@@ -131,7 +133,6 @@ class WelcomePage extends StatelessWidget {
                               highlightColor:
                                   const Color.fromARGB(255, 255, 255, 255)
                                       .withOpacity(0.2),
-                              
                               onTap: () {
                                 Navigator.push(
                                     context,

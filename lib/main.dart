@@ -5,12 +5,21 @@
 // ignore_for_file: must_be_immutable, use_key_in_widget_constructors
 
 import "package:flutter/material.dart";
+import "package:provider/provider.dart";
 import "package:stayfit_app/pages/welcomepage.dart";
+import "package:stayfit_app/services/loginService.dart";
 
 void main() {
-  runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashPage(duration: 3, goToPage: WelcomePage())));
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    Provider(
+      create: (_) => LoginService(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SplashPage(duration: 3, goToPage: WelcomePage()),
+      ),
+    ),
+  );
 }
 
 class SplashPage extends StatelessWidget {
