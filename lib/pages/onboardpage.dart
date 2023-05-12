@@ -2,11 +2,13 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:stayfit_app/templates/onboardcontent.dart';
+
 import 'package:stayfit_app/pages/exerciselistpage.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 
 import '../helpers/contentHelpers.dart';
+import '../models/onboardcontent.dart';
+import '../widgets/drawermenu.dart';
 
 class OnboardPage extends StatefulWidget {
   @override
@@ -30,6 +32,7 @@ class _OnboardPageState extends State<OnboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: MainAppBar(),
+        drawer: MainDrawer(),
         body: Column(
           children: [
             Expanded(

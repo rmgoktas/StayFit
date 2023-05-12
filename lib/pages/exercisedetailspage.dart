@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stayfit_app/templates/exercise.dart';
+
 import 'package:stayfit_app/widgets/mainappbar.dart';
+
+import '../models/exercise.dart';
 
 class ExerciseDetailsPage extends StatelessWidget {
   Exercise selectedExercise;

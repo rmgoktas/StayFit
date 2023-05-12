@@ -2,9 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/helpers/contentHelpers.dart';
-import 'package:stayfit_app/templates/exercise.dart';
+
 import 'package:stayfit_app/pages/selectedexercisepage.dart';
+import 'package:stayfit_app/widgets/drawermenu.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
+import '../models/exercise.dart';
 import '../widgets/exercisecard.dart';
 import '../widgets/exercisenavbar.dart';
 
@@ -16,8 +18,8 @@ class ExerciseListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
-      drawer: const Drawer(),
       appBar: MainAppBar(),
+      drawer: MainDrawer(),
       body: Stack(
         children: [
       Column(

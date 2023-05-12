@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
-import '../templates/exercise.dart';
+import '../models/exercise.dart';
 
 class ExerciseCard extends StatelessWidget {
   Exercise exercise;

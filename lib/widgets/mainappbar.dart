@@ -21,7 +21,8 @@ class MainAppBarState extends State<MainAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       title: SizedBox(
-          width: 65, height: 65, child: Image.asset("assets/blackicon.png")),
+          width: 65, height: 65, 
+      child: Image.asset("assets/blackicon.png")),
       backgroundColor: Colors.transparent,
       foregroundColor: Colors.black,
       elevation: 0,

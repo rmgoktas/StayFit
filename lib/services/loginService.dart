@@ -1,16 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:stayfit_app/templates/loginuser.dart';
+import 'package:stayfit_app/models/loginuser.dart';
 
 class LoginService {
   LoginService() {
     Firebase.initializeApp();
   }
 
-  LoginUserCred? loginUserCred;
+  LoginUserModel? userModel;
 
-  LoginUserCred? get loggedInUserCred => loginUserCred;
+  LoginUserModel? get loggedInUserModel => userModel;
 
   Future<bool> signInWithGoogle() async {
     GoogleSignIn googleSignIn = GoogleSignIn();
@@ -30,12 +30,13 @@ class LoginService {
     );
 
     UserCredential userCreds =
-        await FirebaseAuth.instance.signInWithCredential(credential);
-    if (loginUserCred != null) {
-      loginUserCred = LoginUserCred(
-        name: loginUserCred!.name,
-        email: loginUserCred!.email,
-        photoUrl: loginUserCred!.photoUrl
+    await FirebaseAuth.instance.signInWithCredential(credential);
+if (userCreds != null) {
+  print(userCreds.user);
+  userModel = LoginUserModel(
+    displayName: userCreds.user!.displayName,
+    email: userCreds.user!.email,
+    photoUrl: userCreds.user!.photoURL,
   );
 }
     return true;
@@ -43,6 +44,6 @@ class LoginService {
 
   void signOut() async {
     await GoogleSignIn().signOut();
-    loginUserCred = null;
+    userModel = null;
   }
 }
