@@ -31,14 +31,12 @@ class LoginService {
 
     UserCredential userCreds =
     await FirebaseAuth.instance.signInWithCredential(credential);
-if (userCreds != null) {
-  print(userCreds.user);
-  userModel = LoginUserModel(
-    displayName: userCreds.user!.displayName,
-    email: userCreds.user!.email,
-    photoUrl: userCreds.user!.photoURL,
-  );
-}
+print(userCreds.user);
+userModel = LoginUserModel(
+  displayName: userCreds.user!.displayName,
+  email: userCreds.user!.email,
+  photoUrl: userCreds.user!.photoURL,
+);
     return true;
   }
 

@@ -45,7 +45,7 @@ class MainDrawer extends StatelessWidget {
           TextButton(
             child: ListTile(
               title: Text(
-                "Air Pollution Control",
+                "Air Pollution Meter",
                 style: TextStyle(fontSize: 20),
               ),
             ),
