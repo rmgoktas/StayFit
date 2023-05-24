@@ -15,7 +15,7 @@ class AirQualityService {
         print('API isteği başarısız. Hata kodu: ${response.statusCode}');
         return '';
       }
-    } catch (e) { //Try bloğundaki kodlarda hata meydana gelirse e'nin içine atılır
+    } catch (e) { //Try bloğundaki kodlarda hata meydana gelirse e'nin içine atılır.
       print('API isteği başarısız: $e');
       return '';
     }
