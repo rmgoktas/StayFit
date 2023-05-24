@@ -130,7 +130,7 @@ Future<void> fetchData() async {
         SizedBox(height: 100),
         GridView.count(
           crossAxisCount: 2,
-          shrinkWrap: true, //gridview içeriğine göre kendini daraltır
+          shrinkWrap: true, //gridview içeriğine göre kendini daraltır, 
           children: [
             Column(
               children: [
