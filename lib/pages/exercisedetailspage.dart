@@ -4,6 +4,7 @@ import 'package:stayfit_app/widgets/mainappbar.dart';
 
 import '../models/exercise.dart';
 
+// ignore: must_be_immutable
 class ExerciseDetailsPage extends StatelessWidget {
   Exercise selectedExercise;
 
