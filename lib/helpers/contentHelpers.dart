@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/models/exercise.dart';
 import 'package:stayfit_app/models/onboardcontent.dart';
-import '../models/exercisedetails.dart';
-import '../models/subexercise.dart';
+import '../models/exerciseDetails.dart';
+import '../models/subExercise.dart';
 
 class Content {
   static List<OnboardContent> getScreen() {

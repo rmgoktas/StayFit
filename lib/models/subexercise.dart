@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'exercise.dart';
-import 'exercisedetails.dart';
+import 'exerciseDetails.dart';
 
 class SubExercise extends Exercise {
 
