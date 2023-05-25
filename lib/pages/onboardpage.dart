@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:stayfit_app/pages/exerciselistpage.dart';
+import 'package:stayfit_app/pages/exerciseListPage.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 
 import '../helpers/contentHelpers.dart';

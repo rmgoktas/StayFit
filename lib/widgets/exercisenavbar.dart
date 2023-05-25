@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stayfit_app/pages/activitypage.dart';
-import 'package:stayfit_app/pages/bmiinputpage.dart';
-import 'package:stayfit_app/pages/exerciselistpage.dart';
-import 'package:stayfit_app/pages/stopwatch.dart';
+import 'package:stayfit_app/pages/activityPage.dart';
+import 'package:stayfit_app/pages/bmiInputPage.dart';
+import 'package:stayfit_app/pages/exerciseListPage.dart';
+import 'package:stayfit_app/pages/stopWatchPage.dart';
 
 class ExerciseNavBar extends StatelessWidget {
   const ExerciseNavBar({super.key});

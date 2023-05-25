@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../pages/airconditionpage.dart';
-import '../pages/welcomepage.dart';
+import '../pages/airconditionPage.dart';
+import '../pages/exerciseDailyPage.dart';
+import '../pages/welcomePage.dart';
 import '../services/loginService.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -53,6 +54,20 @@ class MainDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => AirConditionPage()),
+              );
+            },
+          ),
+          TextButton(
+            child: ListTile(
+              title: Text(
+                "Exercise Daily",
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ExerciseDailyPage()),
               );
             },
           ),

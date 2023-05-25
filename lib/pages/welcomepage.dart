@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
-import "package:stayfit_app/pages/exerciselistpage.dart";
-import "package:stayfit_app/pages/onboardpage.dart";
+import 'package:stayfit_app/pages/exerciseListPage.dart';
+import 'package:stayfit_app/pages/onboardPage.dart';
 import "package:stayfit_app/services/loginService.dart";
 
 class WelcomePage extends StatelessWidget {

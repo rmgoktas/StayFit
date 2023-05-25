@@ -2,11 +2,12 @@
 // github: https://github.com/rmgoktas
 // twitter: https://twitter.com/rmgdev0
 // )
+
 // ignore_for_file: must_be_immutable, use_key_in_widget_constructors
 
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
-import "package:stayfit_app/pages/welcomepage.dart";
+import 'package:stayfit_app/pages/welcomePage.dart';
 import "package:stayfit_app/services/loginService.dart";
 
 void main() {

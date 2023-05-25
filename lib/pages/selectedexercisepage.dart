@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
 
-import 'package:stayfit_app/pages/exercisedetailspage.dart';
+import 'package:stayfit_app/pages/exerciseDetailsPage.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
 
 import '../models/exercise.dart';
