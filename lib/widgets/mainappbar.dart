@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../pages/profilePage.dart';
+
 class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
   Color color;
 
@@ -21,19 +23,26 @@ class MainAppBarState extends State<MainAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       title: SizedBox(
-          width: 65, height: 65, 
-      child: Image.asset("assets/blackicon.png")),
+          width: 65, height: 65, child: Image.asset("assets/blackicon.png")),
       backgroundColor: Colors.transparent,
       foregroundColor: Colors.black,
       elevation: 0,
       //elevation ile gölgeleme 0, arkaplana tam uyum
       actions: [
-        Container(
-          margin: const EdgeInsets.only(right: 15),
-          padding: const EdgeInsets.all(10),
-          child: ClipOval(
-            child: Image.asset("assets/appBar/profile.png"),
+        GestureDetector(
+          child: Container(
+            margin: const EdgeInsets.only(right: 15),
+            padding: const EdgeInsets.all(10),
+            child: ClipOval(
+              child: Image.asset("assets/appBar/profile.png"),
+            ),
           ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          },
         )
       ],
     );
