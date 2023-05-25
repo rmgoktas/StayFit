@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stayfit_app/pages/exerciseListPage.dart';
 
 import '../pages/airconditionPage.dart';
 import '../pages/exerciseDailyPage.dart';
@@ -42,6 +43,20 @@ class MainDrawer extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          TextButton(
+            child: ListTile(
+              title: Text(
+                "Home",
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ExerciseListPage()),
+              );
+            },
           ),
           TextButton(
             child: ListTile(
