@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../widgets/mainappbar.dart';
 
@@ -19,6 +20,18 @@ class ExerciseDailyLogPage extends StatelessWidget {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _shareExerciseLog(exerciseList);
+        },
+        backgroundColor: Colors.black,
+        child: Icon(Icons.share),
+      ),
     );
+  }
+
+  Future<void> _shareExerciseLog(List<String> exerciseList) async {
+    final contents = exerciseList.join('\n');
+    await Share.share(contents, subject: 'Exercise Log');
   }
 }

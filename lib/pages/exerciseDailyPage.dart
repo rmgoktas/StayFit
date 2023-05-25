@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:share_plus/share_plus.dart';
+
 
 import '../widgets/mainappbar.dart';
 import 'exerciseDailyLogPage.dart';
@@ -92,16 +92,6 @@ class _ExerciseDailyPageState extends State<ExerciseDailyPage> {
               ),
               child: Text('Clear My Daily'),
             ),
-            SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: () {
-                _shareExerciseLog();
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-              ),
-              child: Text('Share My Exercise Daily'),
-            ),
           ],
         ),
       ),
@@ -174,18 +164,4 @@ class _ExerciseDailyPageState extends State<ExerciseDailyPage> {
       SnackBar(content: Text('Exercise log cleared')),
     );
   }
-  Future<void> _shareExerciseLog() async {
-  final file = await _getLogFile();
-  final fileExists = await file.exists();
-
-  if (fileExists) {
-    final contents = await file.readAsString();
-
-    await Share.share(contents, subject: 'Exercise Log');
-  } else {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Exercise log not found')),
-    );
-  }
-}
 }
