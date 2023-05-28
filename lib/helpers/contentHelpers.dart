@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/models/exercise.dart';
 import 'package:stayfit_app/models/onboardcontent.dart';
-import '../models/exerciseDetails.dart';
+import '../models/exerciseDetailsList.dart';
 import '../models/subExercise.dart';
 
 class Content {

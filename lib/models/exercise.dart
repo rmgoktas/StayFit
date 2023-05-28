@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'exerciseDetails.dart';
+import 'exerciseDetailsList.dart';
 
 
 class Exercise {
