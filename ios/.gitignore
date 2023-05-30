@@ -26,6 +26,8 @@ Flutter/flutter_assets/
 Flutter/flutter_export_environment.sh
 ServiceDefinitions.json
 Runner/GeneratedPluginRegistrant.*
+lib/services/airQualityService.dart
+
 
 
 # Exceptions to above rules.
