@@ -46,6 +46,7 @@ dependencies:
   permission_handler: ^10.2.0
   path_provider: ^2.0.15
   share_plus: ^7.0.1
+  shared_preferences: ^2.1.1
 
 flutter_icons:
   android: true
