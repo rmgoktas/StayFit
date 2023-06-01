@@ -8,9 +8,9 @@ class LoginService {
     Firebase.initializeApp();
   }
 
-  LoginUserModel? userModel;
+  UserModel? userModel;
 
-  LoginUserModel? get loggedInUserModel => userModel;
+  UserModel? get loggedInUserModel => userModel;
 
   Future<bool> signInWithGoogle() async {
     GoogleSignIn googleSignIn = GoogleSignIn();
@@ -30,18 +30,37 @@ class LoginService {
     );
 
     UserCredential userCreds =
-    await FirebaseAuth.instance.signInWithCredential(credential);
-print(userCreds.user);
-userModel = LoginUserModel(
-  displayName: userCreds.user!.displayName,
-  email: userCreds.user!.email,
-  photoUrl: userCreds.user!.photoURL,
-);
+        await FirebaseAuth.instance.signInWithCredential(credential);
+
+    User? firebaseUser = userCreds.user;
+    if (firebaseUser != null) {
+      userModel = UserModel(
+        displayName: firebaseUser.displayName,
+        email: firebaseUser.email,
+        photoURL: firebaseUser.photoURL,
+      );
+      printUserDetails(userModel!); 
+    } else {
+      return false;
+    }
+
     return true;
   }
 
-  void signOut() async {
+  bool isSignedIn() {
+    final User? currentUser = FirebaseAuth.instance.currentUser;
+    return currentUser != null;
+  }
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
     await GoogleSignIn().signOut();
     userModel = null;
+  }
+
+  void printUserDetails(UserModel user) {
+    print("Logged in user: ${user.displayName}");
+    print("Email: ${user.email}");
+    print("Photo URL: ${user.photoURL}");
   }
 }
