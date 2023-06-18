@@ -10,6 +10,7 @@ class UserModel {
   String? refreshToken;
   String? tenantId;
   String? uid;
+  int? stepCount;
 
   UserModel({
     this.displayName,
@@ -23,6 +24,7 @@ class UserModel {
     this.refreshToken,
     this.tenantId,
     this.uid,
+    this.stepCount,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -31,7 +33,7 @@ class UserModel {
       email: json['email'],
       emailVerified: json['emailVerified'],
       isAnonymous: json['isAnonymous'],
-      metadata: UserMetadata.fromJson(json['metadata']),
+      metadata: json['metadata'] != null ? UserMetadata.fromJson(json['metadata']) : null,
       phoneNumber: json['phoneNumber'],
       photoURL: json['photoURL'],
       providerData: (json['providerData'] as List<dynamic>?)
@@ -40,6 +42,24 @@ class UserModel {
       refreshToken: json['refreshToken'],
       tenantId: json['tenantId'],
       uid: json['uid'],
+      stepCount: json['stepCount'],
+    );
+  }
+
+  static UserModel emptyUser() {
+    return UserModel(
+      displayName: null,
+      email: null,
+      emailVerified: null,
+      isAnonymous: null,
+      metadata: null,
+      phoneNumber: null,
+      photoURL: null,
+      providerData: null,
+      refreshToken: null,
+      tenantId: null,
+      uid: null,
+      stepCount: null,
     );
   }
 }
@@ -55,8 +75,8 @@ class UserMetadata {
 
   factory UserMetadata.fromJson(Map<String, dynamic> json) {
     return UserMetadata(
-      creationTime: DateTime.parse(json['creationTime']),
-      lastSignInTime: DateTime.parse(json['lastSignInTime']),
+      creationTime: json['creationTime'] != null ? DateTime.parse(json['creationTime']) : null,
+      lastSignInTime: json['lastSignInTime'] != null ? DateTime.parse(json['lastSignInTime']) : null,
     );
   }
 }
