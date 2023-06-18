@@ -1,10 +1,9 @@
-// ignore_for_file: await_only_futures, unused_local_variable
-
 import 'package:flutter/material.dart';
 import 'package:stayfit_app/pages/exerciseListPage.dart';
 import '../models/loginUser.dart';
 import '../pages/airconditionPage.dart';
 import '../pages/exerciseDailyPage.dart';
+import '../pages/leaderboardPage.dart';
 import '../pages/welcomePage.dart';
 import '../services/loginService.dart';
 
@@ -17,31 +16,51 @@ class MainDrawer extends StatefulWidget {
 
 class _MainDrawerState extends State<MainDrawer> {
   String _userName = "";
+  final LoginService loginService = LoginService();
 
   @override
   void initState() {
-  super.initState();
-  checkSignInStatus();
-  print(_getUserName());
-}
+    super.initState();
+    checkSignInStatus();
+  }
 
   Future<void> checkSignInStatus() async {
-    final LoginService loginService = LoginService();
     final bool signedIn = await loginService.isSignedIn();
-    setState(() {
-      _userName = _getUserName();
-    });
-  }
-
-  String _getUserName() {
-    final UserModel? user = LoginService().loggedInUserModel;
-    if (user != null && user.displayName != null) {
-      return user.displayName!;
+    
+    if (signedIn) {
+      await _getUserName();
     } else {
-      return "Guest User";
+      setState(() {
+        _userName = "Guest User";
+      });
     }
   }
-  
+
+  Future<void> _getUserName() async {
+    List<UserModel> users = await loginService.getUserData();
+
+    if (users.isNotEmpty) {
+      UserModel user = users[0];
+
+      if (user.displayName != null && user.displayName!.isNotEmpty) {
+        setState(() {
+          _userName = user.displayName!;
+        });
+      } else if (user.email != null && user.email!.isNotEmpty) {
+        setState(() {
+          _userName = user.email!;
+        });
+      } else {
+        setState(() {
+          _userName = "Guest User";
+        });
+      }
+    } else {
+      setState(() {
+        _userName = "Guest User";
+      });
+    }
+  }
 
   void _showSignOutMessage() {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -49,6 +68,12 @@ class _MainDrawerState extends State<MainDrawer> {
         content: Text('You have been signed out.'),
       ),
     );
+    
+    setState(() {
+      _userName = "Guest User";
+    });
+
+    checkSignInStatus();
   }
 
   @override
@@ -130,6 +155,33 @@ class _MainDrawerState extends State<MainDrawer> {
           TextButton(
             child: ListTile(
               title: Text(
+                "Step Leaderboard",
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            onPressed: () async {
+              final LoginService loginService = LoginService();
+              final bool signedIn = await loginService.isSignedIn();
+              if (signedIn) {
+                List<UserModel> users = await loginService.getUserData();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LeaderboardPage(users: users),
+                  ),
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('You need to sign in first.'),
+                  ),
+                );
+              }
+            },
+          ),
+          TextButton(
+            child: ListTile(
+              title: Text(
                 "Sign Out",
                 style: TextStyle(fontSize: 20),
               ),
@@ -137,14 +189,11 @@ class _MainDrawerState extends State<MainDrawer> {
             onPressed: () {
               final LoginService loginService = LoginService();
               loginService.signOut();
-              setState(() {
-                _userName = _getUserName();
-              });
+              _showSignOutMessage();
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => WelcomePage()),
               );
-              _showSignOutMessage();
             },
           ),
         ],

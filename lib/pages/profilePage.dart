@@ -1,8 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stayfit_app/models/loginUser.dart';
 import 'package:stayfit_app/widgets/mainappbar.dart';
-
 import '../services/loginService.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -13,64 +12,69 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  UserModel? user;
-  late SharedPreferences? prefs;
-  late int height = 178;
-  late int weight = 63;
+  UserModel? userModel;
   bool _isLoading = true;
+  late String displayName;
+  late String email;
+  late String photoURL;
 
   @override
   void initState() {
     super.initState();
-    user = LoginService().loggedInUserModel;
-    initSharedPreferences();
+    initUserModel();
   }
 
-  Future<void> initSharedPreferences() async {
-    prefs = await SharedPreferences.getInstance();
+  Future<void> initUserModel() async {
+    await updateUserModel();
+    await updateProfileInfo();
+  }
+
+
+
+Future<void> updateProfileInfo() async {
+  final currentUser = FirebaseAuth.instance.currentUser;
+
+  if (currentUser != null) {
     setState(() {
-      weight = prefs!.getInt('weight') ?? 60;
-      height = prefs!.getInt('height') ?? 170;
-      _isLoading = false;
+      displayName = currentUser.displayName ?? '';
+      email = currentUser.email ?? '';
+      photoURL = currentUser.photoURL ?? '';
+    });
+  } else {
+    setState(() {
+      displayName = '';
+      email = '';
+      photoURL = '';
     });
   }
+}
 
-  void incrementWeight() {
-    if (!_isLoading) {
-      setState(() {
-        weight++;
-        prefs!.setInt('weight', weight);
-      });
-    }
-  }
 
-  void decrementWeight() {
-    if (!_isLoading) {
+  Future<void> updateUserModel() async {
+    final firebaseUser = FirebaseAuth.instance.currentUser;
+    if (firebaseUser != null) {
+      List<UserModel> users = await LoginService().getUserData();
+      print('User data: $users'); 
+      final user = users.firstWhere(
+        (user) => user.uid == firebaseUser.uid,
+        orElse: () => UserModel.emptyUser(),
+      );
+      if (user.uid != '') {
+        setState(() {
+          userModel = user;
+          _isLoading = false;
+        });
+        await updateProfileInfo(); // Profil bilgilerini günceller
+      } else {
+        setState(() {
+          userModel = null;
+          _isLoading = false;
+        });
+      }
+    } else {
       setState(() {
-        if (weight > 0) {
-          weight--;
-          prefs!.setInt('weight', weight);
-        }
-      });
-    }
-  }
-
-  void incrementHeight() {
-    if (!_isLoading) {
-      setState(() {
-        height++;
-        prefs!.setInt('height', height);
-      });
-    }
-  }
-
-  void decrementHeight() {
-    if (!_isLoading) {
-      setState(() {
-        if (height > 0) {
-          height--;
-          prefs!.setInt('height', height);
-        }
+        userModel = null;
+        _isLoading = false;
       });
     }
   }
@@ -82,57 +86,29 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Center(
         child: _isLoading
             ? CircularProgressIndicator()
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    backgroundImage: user?.photoURL != null ? NetworkImage(user!.photoURL!) : null,
-                    radius: 80,
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    user?.displayName ?? '',
-                    style: TextStyle(fontSize: 24),
-                  ),
-                  SizedBox(height: 16),
-                  Row(
+            : userModel != null
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TextButton(
-                        onPressed: decrementHeight,
-                        child: Icon(Icons.remove),
+                      CircleAvatar(
+                        backgroundImage: photoURL.isNotEmpty ? NetworkImage(photoURL) : null,
+                        radius: 80,
                       ),
+                      SizedBox(height: 16),
                       Text(
-                        "Height: $height",
+                        userModel!.displayName ?? displayName,
+                        style: TextStyle(fontSize: 24),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        userModel!.email ?? email,
                         style: TextStyle(fontSize: 18),
                       ),
-                      TextButton(
-                        onPressed: incrementHeight,
-                        child: Icon(Icons.add),
-                      ),
+                      SizedBox(height: 16),
                     ],
-                  ),
-                  SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                        onPressed: decrementWeight,
-                        child: Icon(Icons.remove),
-                      ),
-                      Text(
-                        "Weight: $weight",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      TextButton(
-                        onPressed: incrementWeight,
-                        child: Icon(Icons.add),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                  )
+                : Text('User information is not available.'),
       ),
     );
   }

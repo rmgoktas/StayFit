@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-
-
+import 'package:intl/intl.dart';
+import '../helpers/databaseHelper.dart';
 import '../widgets/mainappbar.dart';
 import 'exerciseDailyLogPage.dart';
 
@@ -17,7 +14,7 @@ class ExerciseDailyPage extends StatefulWidget {
 class _ExerciseDailyPageState extends State<ExerciseDailyPage> {
   TextEditingController _exerciseController = TextEditingController();
   TextEditingController _setController = TextEditingController();
-  List<String> _exerciseList = [];
+  List<Map<String, dynamic>> _exerciseList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +26,7 @@ class _ExerciseDailyPageState extends State<ExerciseDailyPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Today: ${DateTime.now().toString().split(' ')[0]}',
+              'Today: ${DateFormat('yyyy-MM-dd').format(DateTime.now())}',
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16.0),
@@ -98,23 +95,23 @@ class _ExerciseDailyPageState extends State<ExerciseDailyPage> {
     );
   }
 
-  Future<File> _getLogFile() async {
-    final directory = await getApplicationDocumentsDirectory();
-    final file = File('${directory.path}/exercise_log.txt');
-    return file;
-  }
-
   Future<void> _addExercise() async {
     final exercise = _exerciseController.text;
-    final sets = _setController.text;
+    final sets = int.tryParse(_setController.text);
 
-    if (exercise.isNotEmpty && sets.isNotEmpty) {
-      final file = await _getLogFile();
-      final entry = '${DateTime.now().toString().split(' ')[0]}: $exercise ($sets sets)\n';
-      await file.writeAsString(entry, mode: FileMode.append);
+    if (exercise.isNotEmpty && sets != null) {
+      final date = DateFormat('dd-MM-yyyy').format(DateTime.now());
+      final exerciseId = await DatabaseHelper.instance.addExercise(exercise, sets, date);
+
+      final exerciseData = {
+        'id': exerciseId,
+        'exercise': exercise,
+        'sets': sets,
+        'date': date,
+      };
 
       setState(() {
-        _exerciseList.add(entry);
+        _exerciseList.add(exerciseData);
         _exerciseController.clear();
         _setController.clear();
       });
@@ -129,32 +126,23 @@ class _ExerciseDailyPageState extends State<ExerciseDailyPage> {
     }
   }
 
-    Future<void> _viewExerciseLog() async {
-    final file = await _getLogFile();
-    final fileExists = await file.exists();
 
-    if (fileExists) {
-      final contents = await file.readAsString();
-      final lines = contents.split('\n');
+  Future<void> _viewExerciseLog() async {
+    final date = DateFormat('dd-MM-yyyy').format(DateTime.now());
+    final exerciseList = await DatabaseHelper.instance.getExercisesByDate(date);
 
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ExerciseDailyLogPage(
-            exerciseList: lines,
-          ),
+        Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ExerciseDailyLogPage(
+          exerciseList: exerciseList,
         ),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Exercise log not found')),
-      );
-    }
+      ),
+    );
   }
 
   Future<void> _clearLog() async {
-    final file = await _getLogFile();
-    await file.writeAsString('');
+    await DatabaseHelper.instance.clearLog();
 
     setState(() {
       _exerciseList.clear();

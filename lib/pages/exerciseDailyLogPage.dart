@@ -4,7 +4,7 @@ import 'package:share_plus/share_plus.dart';
 import '../widgets/mainappbar.dart';
 
 class ExerciseDailyLogPage extends StatelessWidget {
-  final List<String> exerciseList;
+  final List<Map<String, dynamic>> exerciseList;
 
   const ExerciseDailyLogPage({Key? key, required this.exerciseList}) : super(key: key);
 
@@ -15,8 +15,14 @@ class ExerciseDailyLogPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: exerciseList.length,
         itemBuilder: (context, index) {
+          final exercise = exerciseList[index];
+          final exerciseName = exercise['exercise'];
+          final date = exercise['date'];
+          final sets = exercise['sets'];
+
           return ListTile(
-            title: Text(exerciseList[index], style: TextStyle(fontSize: 16.0)),
+            title: Text('$exerciseName - $date', style: TextStyle(fontSize: 16.0)),
+            subtitle: Text('Sets: $sets'),
           );
         },
       ),
@@ -30,8 +36,14 @@ class ExerciseDailyLogPage extends StatelessWidget {
     );
   }
 
-  Future<void> _shareExerciseLog(List<String> exerciseList) async {
-    final contents = exerciseList.join('\n');
-    await Share.share(contents, subject: 'Exercise Log');
+  Future<void> _shareExerciseLog(List<Map<String, dynamic>> exerciseList) async {
+    final formattedList = exerciseList.map((exercise) {
+      final exerciseName = exercise['exercise'];
+      final date = exercise['date'];
+      final sets = exercise['sets'];
+      return '$exerciseName - $date (Sets: $sets)';
+    }).join('\n');
+
+    await Share.share(formattedList, subject: 'Exercise Log');
   }
 }
