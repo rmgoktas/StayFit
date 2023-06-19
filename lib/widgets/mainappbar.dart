@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../pages/profilePage.dart';
 
@@ -16,15 +15,15 @@ class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class MainAppBarState extends State<MainAppBar> {
-  String photoURL = "";
+  //String photoURL = "";
 
   @override
   void initState() {
     super.initState();
-    updateProfileImageUrl();
+    //updateProfileImageUrl();
   }
 
-  void updateProfileImageUrl() {
+/*void updateProfileImageUrl() {
     final currentUser = FirebaseAuth.instance.currentUser;
 
     if (currentUser != null) {
@@ -40,7 +39,7 @@ class MainAppBarState extends State<MainAppBar> {
         photoURL = "";
       });
     }
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -56,14 +55,14 @@ class MainAppBarState extends State<MainAppBar> {
             margin: const EdgeInsets.only(right: 15),
             padding: const EdgeInsets.all(10),
             child: ClipOval(
-              child: photoURL.isNotEmpty
+              child: /*photoURL.isNotEmpty
                   ? Image.network(
                       photoURL,
                       fit: BoxFit.cover,
                       width: 35,
                       height: 40,
                     )
-                  : Image.asset(
+                  : */Image.asset(
                       "assets/appBar/profile.png",
                       fit: BoxFit.cover,
                       width: 30,
