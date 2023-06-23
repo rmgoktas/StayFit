@@ -50,7 +50,7 @@ Future<void> fetchData() async {
       responseBody = apiResponse;
     });
 
-    print(apiResponse); // Verileri konsola yazdırır
+    print(apiResponse); // cevabı konsola yazdırır
 
     
     var jsonData = json.decode(apiResponse);
@@ -210,7 +210,7 @@ Future<void> fetchData() async {
     );
   }
 
-  Widget _buildLoadingIndicator() {
+  Widget buildLoadingIndicator() {
     return Center(
       child: CircularProgressIndicator(),
     );
@@ -228,7 +228,7 @@ Future<void> fetchData() async {
           if (_aqi != null)
             buildAirQualityInfo(),
           if (_aqi == null)
-            _buildLoadingIndicator(),
+            buildLoadingIndicator(),
         ],
       ),
     );

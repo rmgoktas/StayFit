@@ -13,7 +13,7 @@ class LocationService {
             desiredAccuracy: LocationAccuracy.high);
         return position;
       } else {
-        // Konum izni reddedildiyse null döndürür.
+        // Konum izni reddedildiyse null döndürür
         print('Konum izni reddedildi');
         return null;
       }

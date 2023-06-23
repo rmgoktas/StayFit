@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -14,6 +13,7 @@ class LoginService {
   UserModel? userModel;
 
   UserModel? get loggedInUserModel => userModel;
+  //loggedinusermodel getter'ı ile diğer sınıflardan userModel ile kullanıcı verilerine erişilebilir.
 
   Future<bool> signInWithGoogle() async {
     GoogleSignIn googleSignIn = GoogleSignIn();
@@ -24,16 +24,14 @@ class LoginService {
       return false;
     }
 
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
+    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
 
     final OAuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
 
-    UserCredential userCreds =
-        await FirebaseAuth.instance.signInWithCredential(credential);
+    UserCredential userCreds = await FirebaseAuth.instance.signInWithCredential(credential);
 
     User? firebaseUser = userCreds.user;
     if (firebaseUser != null) {

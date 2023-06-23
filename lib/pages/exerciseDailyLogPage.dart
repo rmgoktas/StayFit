@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
-
 import '../widgets/mainappbar.dart';
 
 class ExerciseDailyLogPage extends StatelessWidget {
@@ -44,6 +43,6 @@ class ExerciseDailyLogPage extends StatelessWidget {
       return '$exerciseName - $date (Sets: $sets)';
     }).join('\n');
 
-    await Share.share(formattedList, subject: 'Exercise Log');
+    await Share.share(formattedList, subject: 'My Exercise Daily');
   }
 }

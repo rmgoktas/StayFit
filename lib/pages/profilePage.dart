@@ -54,7 +54,6 @@ Future<void> updateProfileInfo() async {
     final firebaseUser = FirebaseAuth.instance.currentUser;
     if (firebaseUser != null) {
       List<UserModel> users = await LoginService().getUserData();
-      print('User data: $users'); 
       final user = users.firstWhere(
         (user) => user.uid == firebaseUser.uid,
         orElse: () => UserModel.emptyUser(),
@@ -64,7 +63,7 @@ Future<void> updateProfileInfo() async {
           userModel = user;
           _isLoading = false;
         });
-        await updateProfileInfo(); // Profil bilgilerini günceller
+        await updateProfileInfo(); 
       } else {
         setState(() {
           userModel = null;

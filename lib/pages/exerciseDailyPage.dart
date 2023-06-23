@@ -26,7 +26,7 @@ class _ExerciseDailyPageState extends State<ExerciseDailyPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Today: ${DateFormat('yyyy-MM-dd').format(DateTime.now())}',
+              'Today: ${DateFormat('dd-MM-yyyy').format(DateTime.now())}',
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16.0),
@@ -131,7 +131,7 @@ class _ExerciseDailyPageState extends State<ExerciseDailyPage> {
     final date = DateFormat('dd-MM-yyyy').format(DateTime.now());
     final exerciseList = await DatabaseHelper.instance.getExercisesByDate(date);
 
-        Navigator.push(
+    Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => ExerciseDailyLogPage(
