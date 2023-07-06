@@ -40,7 +40,7 @@ You can exercise at home without equipment, calculate your body mass index, trac
 **Available for both iOS and Android.**
 
 <p align="center">
-  <img src = "https://i.imgur.com/AAu9whq.jpg" width=350>
+  <img src = "https://i.imgur.com/AAu9whq.jpg" width=450>
 </p>
 
 ## Features
@@ -74,7 +74,7 @@ A few of the things you can do with StayFit App:
 ## Screeshots
 
 <p align="center">
-  <img src = "https://i.imgur.com/Fde7EqD.jpg" width=700>
+  <img src = "https://i.imgur.com/Fde7EqD.jpg" width=900>
 </p>
 
 ## Feedback
