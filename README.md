@@ -25,7 +25,6 @@
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Design Pattern](#designpattern)
 - [What Was Used](#whatwasused)
 - [Screenshots](#screenshots)
 - [Feedback](#feedback)
@@ -54,11 +53,6 @@ A few of the things you can do with StayFit App:
 * You can save your exercises in the built-in exercise diary.
 * You can see the quality of the air in your location.
 * You can increase the competition by seeing the step counts of users in your local area in the ranking table.
-
-
-## Design Pattern
-
-* MVVM
 
 ## What Was Used 
 
